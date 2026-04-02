@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── App shell ── */
+:root {
+  --bg: #0A0A0A;
+  --surface: #111111;
+  --border: #222222;
+  --text: #FFFFFF;
+  --text-muted: #888888;
+  --text-dim: #555555;
+  --accent-default: #E8C84A;
+  --nav-height: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Georgia', serif;
+  overscroll-behavior: none;       /* prevents pull-to-refresh on mobile */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text size change on iOS orientation change */
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ── Grid texture ── */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Impact-style headings ── */
+.heading {
+  font-family: Impact, 'Arial Black', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+}
+
+.label {
+  font-family: Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Bottom nav spacing ── */
+.content-area {
+  padding-bottom: calc(var(--nav-height) + var(--safe-bottom));
+}
+
+/* ── Scrollbar hide on mobile ── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Floating flags animation ── */
+@keyframes float {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-8px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── iOS tap highlight ── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Safe area padding for iPhone notch ── */
+.safe-top    { padding-top: env(safe-area-inset-top, 0px); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
