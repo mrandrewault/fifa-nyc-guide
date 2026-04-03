@@ -5,7 +5,7 @@ import type { AppTab } from '@/types';
 const TABS: { id: AppTab; icon: string; label: string; activeColor: string }[] = [
   { id: 'guide',         icon: '🏆', label: 'Guide',     activeColor: '#E8C84A' },
   { id: 'schedule',      icon: '📅', label: 'Matches',   activeColor: '#E8C84A' },
-  { id: 'stadium',       icon: '🏟', label: 'Stadium',   activeColor: '#4AB4E8' },
+  { id: 'planner',       icon: '🗓️', label: 'Planner',   activeColor: '#4AE8A0' },
   { id: 'neighborhoods', icon: '🗺', label: 'Areas',     activeColor: '#4AE8A0' },
   { id: 'transit',       icon: '🚇', label: 'Transit',   activeColor: '#E84A8C' },
 ];

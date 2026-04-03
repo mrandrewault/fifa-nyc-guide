@@ -1,8 +1,8 @@
 // ─── Core Types ──────────────────────────────────────────────────────────────
 
 export type Borough = 'Manhattan' | 'Brooklyn' | 'Queens' | 'The Bronx' | 'Staten Island';
-export type VenueType = 'bar' | 'restaurant' | 'cultural' | 'watch party';
-export type AppTab = 'guide' | 'schedule' | 'stadium' | 'neighborhoods' | 'transit';
+
+
 
 // ─── Venue ────────────────────────────────────────────────────────────────────
 
@@ -156,3 +156,4 @@ export function dbVenueToVenue(row: DbVenue): Venue {
     openingHours: row.opening_hours ?? undefined,
   };
 }
+export type AppTab = 'guide' | 'schedule' | 'stadium' | 'neighborhoods' | 'transit' | 'planner';

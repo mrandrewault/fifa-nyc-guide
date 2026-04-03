@@ -8,6 +8,7 @@ import ScheduleTab from '@/components/schedule/ScheduleTab';
 import StadiumTab from '@/components/stadium/StadiumTab';
 import NeighborhoodsTab from '@/components/neighborhoods/NeighborhoodsTab';
 import TransitTab from '@/components/transit/TransitTab';
+import DayPlannerTab from '@/components/planner/DayPlannerTab';
 
 const TAB_COMPONENTS: Record<AppTab, React.FC> = {
   guide:         GuideTab,
@@ -15,6 +16,7 @@ const TAB_COMPONENTS: Record<AppTab, React.FC> = {
   stadium:       StadiumTab,
   neighborhoods: NeighborhoodsTab,
   transit:       TransitTab,
+  planner:       DayPlannerTab,
 };
 
 export default function HomePage() {
@@ -26,15 +28,10 @@ export default function HomePage() {
       className="relative min-h-screen"
       style={{ background: '#0A0A0A', color: '#FFF' }}
     >
-      {/* Grid background texture */}
       <div className="grid-texture pointer-events-none fixed inset-0 z-0" />
-
-      {/* Scrollable content */}
       <main className="relative z-10 mx-auto max-w-3xl content-area">
         <ActiveTab />
       </main>
-
-      {/* Bottom navigation */}
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
     </div>
   );
