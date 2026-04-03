@@ -615,4 +615,3 @@ export function getHardcodedVenuesForCountry(
     isActive: true,
     featured: true,
   },
-];
