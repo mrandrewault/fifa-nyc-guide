@@ -24,13 +24,13 @@
  * SUPABASE SCHEMA (run in the SQL editor):
  * See /supabase/migrations/001_create_venues.sql
  */
-
+ 
 import type { Venue } from '@/types';
-
+ 
 export const VENUES: Venue[] = [
-
+ 
   // ─── BRAZIL ──────────────────────────────────────────────────────────────
-
+ 
   {
     id: 'brazil-smithfield-hall',
     name: "Smithfield Hall",
@@ -202,10 +202,10 @@ export const VENUES: Venue[] = [
     isActive: true,
     featured: true,
   },
-
+ 
   // ─── ENGLAND ─────────────────────────────────────────────────────────────
   // (showing that a major soccer country also gets more venues)
-
+ 
   {
     id: 'england-football-factory',
     name: "Football Factory at Legends",
@@ -284,9 +284,9 @@ export const VENUES: Venue[] = [
     isActive: true,
     featured: false,
   },
-
+ 
   // ─── GERMANY ─────────────────────────────────────────────────────────────
-
+ 
   {
     id: 'germany-smithfield',
     name: "Smithfield Hall",
@@ -335,7 +335,7 @@ export const VENUES: Venue[] = [
     isActive: true,
     featured: true,
   },
-
+ 
   // ─── Add more countries following the same pattern ────────────────────────
   // Each venue needs: countryAssociations array (can be multiple countries),
   // isVerified flag, and featured: true/false for display priority.
@@ -347,8 +347,7 @@ export const VENUES: Venue[] = [
   //
   // A venue like Football Factory at Legends should appear in ALL country guides
   // since it hosts every country's supporters groups.
-];
-
+ 
 /**
  * Get venues for a given country from the hardcoded data.
  * Returns venues sorted by: featured first, then type priority.
@@ -362,21 +361,21 @@ export function getHardcodedVenuesForCountry(
     v.countryAssociations.includes(countryName) &&
     (!borough || v.borough === borough)
   );
-
+ 
   // Sort: featured first, then by type
   const typeOrder: Record<string, number> = {
     'watch party': 0, bar: 1, restaurant: 2, cultural: 3,
   };
-
+ 
   return venues.sort((a, b) => {
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
     return (typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9);
   });
 }
-
+ 
   // ─── ARGENTINA ────────────────────────────────────────────────────────────
-
+ 
   // Manhattan
   {
     id: 'argentina-buenos-aires-ev',
@@ -522,7 +521,7 @@ export function getHardcodedVenuesForCountry(
     isActive: true,
     featured: false,
   },
-
+ 
   // Brooklyn
   {
     id: 'argentina-libertador-brooklyn',
@@ -560,7 +559,7 @@ export function getHardcodedVenuesForCountry(
     isActive: true,
     featured: false,
   },
-
+ 
   // Queens
   {
     id: 'argentina-boca-juniors-elmhurst',
@@ -615,3 +614,4 @@ export function getHardcodedVenuesForCountry(
     isActive: true,
     featured: true,
   },
+];
