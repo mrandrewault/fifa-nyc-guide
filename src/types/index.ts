@@ -1,49 +1,41 @@
 // ─── Core Types ──────────────────────────────────────────────────────────────
-
+ 
 export type Borough = 'Manhattan' | 'Brooklyn' | 'Queens' | 'The Bronx' | 'Staten Island';
-
-
-
+export type VenueType = 'bar' | 'restaurant' | 'cultural' | 'watch party';
+export type AppTab = 'guide' | 'schedule' | 'stadium' | 'neighborhoods' | 'transit' | 'planner';
+ 
 // ─── Venue ────────────────────────────────────────────────────────────────────
-
-/**
- * A venue is a bar, restaurant, cultural space, or watch party location.
- *
- * When pulling from Supabase, `country_associations` is a string[]
- * of country names (e.g. ["Brazil", "Colombia"]) — one venue can be
- * associated with multiple countries. The `why` and `mustOrder` fields
- * can optionally be country-specific via the `countryContext` override.
- */
+ 
 export interface Venue {
-  id: string;                       // UUID from Supabase (or local slug)
+  id: string;
   name: string;
   type: VenueType;
   address: string;
   borough: Borough;
-  neighborhood?: string;            // e.g. "Astoria", "Jackson Heights"
+  neighborhood?: string;
   lat?: number;
   lng?: number;
-  googlePlaceId?: string;           // for Maps embed + verification
-  why: string;                      // why this venue for this community
+  googlePlaceId?: string;
+  why: string;
   mustOrder: string;
-  atmosphere: string;               // single evocative word
-  countryAssociations: string[];    // which country guides feature this venue
-  isVerified: boolean;              // has been manually verified as open
-  verifiedAt?: string;              // ISO date string
-  isActive: boolean;                // soft delete / temp closure
-  featured?: boolean;               // show first in list
+  atmosphere: string;
+  countryAssociations: string[];
+  isVerified: boolean;
+  verifiedAt?: string;
+  isActive: boolean;
+  featured?: boolean;
   website?: string;
   phone?: string;
   openingHours?: string;
 }
-
+ 
 // ─── Country Guide ────────────────────────────────────────────────────────────
-
+ 
 export interface BoroughGuide {
   highlight: string;
   venues: Venue[];
 }
-
+ 
 export interface Guide {
   headline: string;
   vibe: string;
@@ -51,31 +43,31 @@ export interface Guide {
   insider: string;
   chant: string;
 }
-
+ 
 export interface Country {
   name: string;
-  flag: string;           // emoji
-  colors: string[];       // hex colors for theming — first usable one = accent
+  flag: string;
+  colors: string[];
 }
-
+ 
 // ─── Schedule ─────────────────────────────────────────────────────────────────
-
+ 
 export interface Match {
   id: number;
-  date: string;           // "Sat Jun 13"
-  dateFull: string;       // ISO datetime string for countdown
-  time: string;           // "6:00 PM ET"
+  date: string;
+  dateFull: string;
+  time: string;
   team1: string;
   team2: string;
   flag1: string;
   flag2: string;
-  stage: string;          // "Group C", "Round of 32", "THE FINAL"
+  stage: string;
   color1: string;
   color2: string;
 }
-
+ 
 // ─── Neighborhood ─────────────────────────────────────────────────────────────
-
+ 
 export interface Neighborhood {
   id: string;
   name: string;
@@ -91,9 +83,9 @@ export interface Neighborhood {
   insider: string;
   blurb: string;
 }
-
+ 
 // ─── Transit ──────────────────────────────────────────────────────────────────
-
+ 
 export interface TransitRoute {
   from: string;
   via: string;
@@ -103,9 +95,9 @@ export interface TransitRoute {
   tip: string;
   color: string;
 }
-
-// ─── Supabase DB Types (mirrors your table schema) ────────────────────────────
-
+ 
+// ─── Supabase DB Types ────────────────────────────────────────────────────────
+ 
 export interface DbVenue {
   id: string;
   name: string;
@@ -130,8 +122,7 @@ export interface DbVenue {
   created_at: string;
   updated_at: string;
 }
-
-// Helper to map DB row → app type
+ 
 export function dbVenueToVenue(row: DbVenue): Venue {
   return {
     id: row.id,
@@ -156,4 +147,4 @@ export function dbVenueToVenue(row: DbVenue): Venue {
     openingHours: row.opening_hours ?? undefined,
   };
 }
-export type AppTab = 'guide' | 'schedule' | 'stadium' | 'neighborhoods' | 'transit' | 'planner';
+ 
