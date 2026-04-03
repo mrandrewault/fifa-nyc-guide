@@ -9,7 +9,7 @@ import StadiumTab from '@/components/stadium/StadiumTab';
 import NeighborhoodsTab from '@/components/neighborhoods/NeighborhoodsTab';
 import TransitTab from '@/components/transit/TransitTab';
 import DayPlannerTab from '@/components/planner/DayPlannerTab';
-import TranslateWidget from '@/components/shared/TranslateWidget';
+import TranslateWidget from '@/components/TranslateWidget';
 
 const TAB_COMPONENTS: Record<AppTab, React.FC> = {
   guide:         GuideTab,
