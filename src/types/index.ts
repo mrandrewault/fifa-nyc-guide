@@ -1,11 +1,11 @@
 // ─── Core Types ──────────────────────────────────────────────────────────────
- 
+
 export type Borough = 'Manhattan' | 'Brooklyn' | 'Queens' | 'The Bronx' | 'Staten Island';
 export type VenueType = 'bar' | 'restaurant' | 'cultural' | 'watch party';
 export type AppTab = 'guide' | 'schedule' | 'stadium' | 'neighborhoods' | 'transit' | 'planner';
- 
+
 // ─── Venue ────────────────────────────────────────────────────────────────────
- 
+
 export interface Venue {
   id: string;
   name: string;
@@ -28,14 +28,14 @@ export interface Venue {
   phone?: string;
   openingHours?: string;
 }
- 
+
 // ─── Country Guide ────────────────────────────────────────────────────────────
- 
+
 export interface BoroughGuide {
   highlight: string;
   venues: Venue[];
 }
- 
+
 export interface Guide {
   headline: string;
   vibe: string;
@@ -43,15 +43,15 @@ export interface Guide {
   insider: string;
   chant: string;
 }
- 
+
 export interface Country {
   name: string;
   flag: string;
   colors: string[];
 }
- 
+
 // ─── Schedule ─────────────────────────────────────────────────────────────────
- 
+
 export interface Match {
   id: number;
   date: string;
@@ -65,9 +65,9 @@ export interface Match {
   color1: string;
   color2: string;
 }
- 
+
 // ─── Neighborhood ─────────────────────────────────────────────────────────────
- 
+
 export interface Neighborhood {
   id: string;
   name: string;
@@ -83,9 +83,9 @@ export interface Neighborhood {
   insider: string;
   blurb: string;
 }
- 
+
 // ─── Transit ──────────────────────────────────────────────────────────────────
- 
+
 export interface TransitRoute {
   from: string;
   via: string;
@@ -95,9 +95,9 @@ export interface TransitRoute {
   tip: string;
   color: string;
 }
- 
+
 // ─── Supabase DB Types ────────────────────────────────────────────────────────
- 
+
 export interface DbVenue {
   id: string;
   name: string;
@@ -122,7 +122,7 @@ export interface DbVenue {
   created_at: string;
   updated_at: string;
 }
- 
+
 export function dbVenueToVenue(row: DbVenue): Venue {
   return {
     id: row.id,
@@ -147,4 +147,3 @@ export function dbVenueToVenue(row: DbVenue): Venue {
     openingHours: row.opening_hours ?? undefined,
   };
 }
- 
