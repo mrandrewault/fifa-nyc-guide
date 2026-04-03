@@ -1,9 +1,9 @@
 import type { Venue } from '@/types';
- 
+
 export const VENUES: Venue[] = [
- 
+
   // ─── UNIVERSAL SOCCER BARS (appear in many country guides) ───────────────
- 
+
   {
     id: 'football-factory-legends',
     name: "Football Factory at Legends",
@@ -32,9 +32,9 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Brazil','England','Germany','United States','France','Colombia','Argentina'],
     isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
   },
- 
+
   // ─── BRAZIL ──────────────────────────────────────────────────────────────
- 
+
   {
     id: 'brazil-via-brasil',
     name: "Via Brasil Restaurant",
@@ -133,9 +133,9 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Brazil'],
     isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
   },
- 
+
   // ─── COLOMBIA ────────────────────────────────────────────────────────────
- 
+
   {
     id: 'colombia-cositas-ricas',
     name: "Cositas Ricas",
@@ -220,9 +220,9 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Colombia'],
     isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: false,
   },
- 
+
   // ─── ECUADOR ─────────────────────────────────────────────────────────────
- 
+
   {
     id: 'ecuador-barzola',
     name: "Barzola Restaurant",
@@ -293,9 +293,9 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Ecuador', 'Mexico'],
     isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
   },
- 
+
   // ─── SENEGAL ─────────────────────────────────────────────────────────────
- 
+
   {
     id: 'senegal-ponty-bistro',
     name: "Ponty Bistro",
@@ -352,9 +352,9 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Senegal'],
     isVerified: false, isActive: true, featured: false,
   },
- 
+
   // ─── MOROCCO ─────────────────────────────────────────────────────────────
- 
+
   {
     id: 'morocco-dar-yemma',
     name: "Dar Yemma",
@@ -425,9 +425,9 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Morocco'],
     isVerified: false, isActive: true, featured: false,
   },
- 
+
   // ─── ARGENTINA ───────────────────────────────────────────────────────────
- 
+
   {
     id: 'argentina-buenos-aires-ev',
     name: "Buenos Aires Restaurant",
@@ -582,9 +582,9 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Argentina', 'Brazil', 'United States'],
     isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: false,
   },
- 
+
   // ─── ENGLAND ─────────────────────────────────────────────────────────────
- 
+
   {
     id: 'england-carraghers',
     name: "Carragher's",
@@ -613,9 +613,9 @@ export const VENUES: Venue[] = [
     countryAssociations: ['England', 'United States'],
     isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
   },
- 
+
   // ─── GERMANY ─────────────────────────────────────────────────────────────
- 
+
   {
     id: 'germany-radegast',
     name: "Radegast Hall & Biergarten",
@@ -630,13 +630,234 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Germany', 'Netherlands'],
     isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
   },
- 
+
+  // ─── NORWAY ──────────────────────────────────────────────────────────────
+
+  {
+    id: 'norway-kabin',
+    name: "Kabin",
+    type: 'bar',
+    address: "94 Rivington St, Lower East Side, Manhattan",
+    borough: 'Manhattan',
+    neighborhood: 'Lower East Side',
+    lat: 40.7193, lng: -73.9862,
+    why: "NYC's only dedicated Norwegian bar — founded by Norwegian Alex Tangen with cabin-and-sauna-inspired Nordic design. The natural gathering spot for the Norwegian expat community during World Cup 2026.",
+    mustOrder: "Norwegian-inspired cocktail + oysters",
+    atmosphere: "Nordic cabin",
+    countryAssociations: ['Norway'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'norway-danish-athletic-club',
+    name: "Danish Athletic Club",
+    type: 'bar',
+    address: "8th Ave, Bay Ridge, Brooklyn",
+    borough: 'Brooklyn',
+    neighborhood: 'Bay Ridge',
+    lat: 40.6349, lng: -74.0241,
+    why: "Historic Nordic restaurant and bar in Brooklyn's 'Lapskaus Boulevard' — once Little Norway. Norwegian and Danish homestyle dishes and the best spot in Brooklyn for Norway World Cup matches.",
+    mustOrder: "Nordic homestyle dishes",
+    atmosphere: "Historic Scandinavian",
+    countryAssociations: ['Norway'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+
+  // ─── GERMANY (additions) ─────────────────────────────────────────────────
+
+  {
+    id: 'germany-bierhaus',
+    name: "Bierhaus NYC",
+    type: 'bar',
+    address: "712 3rd Ave, Midtown East, Manhattan",
+    borough: 'Manhattan',
+    neighborhood: 'Midtown East',
+    lat: 40.7527, lng: -73.9726,
+    why: "Bavarian-style beer hall two blocks from Grand Central — Hofbräu partner, liter steins, live music. The German professional community's Midtown anchor for World Cup matches.",
+    mustOrder: "Liter stein of Hofbräu + bratwurst",
+    atmosphere: "Bavarian beer hall",
+    countryAssociations: ['Germany'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'germany-zum-stammtisch',
+    name: "Zum Stammtisch",
+    type: 'restaurant',
+    address: "69-46 Myrtle Ave, Glendale, Queens",
+    borough: 'Queens',
+    neighborhood: 'Glendale',
+    lat: 40.7044, lng: -73.8735,
+    why: "Authentic German beer hall in Queens — six German taps, currywurst, schnitzel, and Bundesliga soccer always on. One of the most authentic German experiences in NYC.",
+    mustOrder: "Currywurst + Radeberger Pilsner",
+    atmosphere: "Authentic German local",
+    countryAssociations: ['Germany'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'germany-gotscheer-hall',
+    name: "Gotscheer Hall",
+    type: 'bar',
+    address: "657 Fairview Ave, Ridgewood, Queens",
+    borough: 'Queens',
+    neighborhood: 'Ridgewood',
+    lat: 40.7005, lng: -73.9061,
+    why: "Historic 1924 German community hall — wood-paneled bar, steins, schnitzel, soccer on TV. One of the last authentic German-American community institutions in NYC.",
+    mustOrder: "Schnitzel + German beer",
+    atmosphere: "Historic community hall",
+    countryAssociations: ['Germany'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: false,
+  },
+
+  // ─── FRANCE ──────────────────────────────────────────────────────────────
+
+  {
+    id: 'france-bar-tabac',
+    name: "Bar Tabac",
+    type: 'restaurant',
+    address: "128 Smith St, Cobble Hill, Brooklyn",
+    borough: 'Brooklyn',
+    neighborhood: 'Cobble Hill',
+    lat: 40.6874, lng: -73.9944,
+    why: "Brooklyn's most beloved French bistro — shows all France matches, packed with French expats. Moules frites, coq au vin, Ricard, outdoor pétanque. The real French community spot in Brooklyn.",
+    mustOrder: "Moules frites + Ricard",
+    atmosphere: "Parisian tabac",
+    countryAssociations: ['France'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'france-cafe-du-soleil',
+    name: "Café du Soleil",
+    type: 'restaurant',
+    address: "2723 Broadway, Upper West Side, Manhattan",
+    borough: 'Manhattan',
+    neighborhood: 'Upper West Side',
+    lat: 40.7996, lng: -73.9689,
+    why: "Classic French bistro with 100-seat terrace — TVs inside and out for France matches, happy hour specials during games. The French community's Upper West Side anchor.",
+    mustOrder: "Croque monsieur + Bordeaux",
+    atmosphere: "Classic French",
+    countryAssociations: ['France'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'france-o-cabanon',
+    name: "O'Cabanon",
+    type: 'bar',
+    address: "245 W 29th St, Chelsea, Manhattan",
+    borough: 'Manhattan',
+    neighborhood: 'Chelsea',
+    lat: 40.7481, lng: -73.9964,
+    why: "Chelsea French bar showing every Les Bleus match on giant screens since the 2018 World Cup. The French expat community's Manhattan watch party HQ.",
+    mustOrder: "French wine + cheese board",
+    atmosphere: "French community bar",
+    countryAssociations: ['France'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+
+  // ─── ITALY ───────────────────────────────────────────────────────────────
+
+  {
+    id: 'italy-zero-otto-nove',
+    name: "Zero Otto Nove",
+    type: 'restaurant',
+    address: "2357 Arthur Ave, Belmont, The Bronx",
+    borough: 'The Bronx',
+    neighborhood: 'Arthur Avenue',
+    lat: 40.8543, lng: -73.8871,
+    why: "The best restaurant on Arthur Avenue — dining room painted like an Italian courtyard. When Italy plays, the Azzurri World Cup HQ in the Bronx's real Little Italy.",
+    mustOrder: "Insalata di mare + baked rigatoni",
+    atmosphere: "Real Little Italy",
+    countryAssociations: ['Italy'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'italy-dominicks',
+    name: "Dominick's",
+    type: 'restaurant',
+    address: "2335 Arthur Ave, Belmont, The Bronx",
+    borough: 'The Bronx',
+    neighborhood: 'Arthur Avenue',
+    lat: 40.8541, lng: -73.8874,
+    why: "Cash only, no menu, no reservations — family-style Italian-American as it was in 1963. The Godfather producers wanted to film here. Multigenerational families fill every table for Italy matches.",
+    mustOrder: "Whatever the server recommends",
+    atmosphere: "Old Bronx classic",
+    countryAssociations: ['Italy'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'italy-arthur-market',
+    name: "Arthur Avenue Retail Market",
+    type: 'cultural',
+    address: "2344 Arthur Ave, Belmont, The Bronx",
+    borough: 'The Bronx',
+    neighborhood: 'Arthur Avenue',
+    lat: 40.8542, lng: -73.8872,
+    why: "Indoor market where vendors put screens in stalls for Italy matches. Buy pasta, cheese, cured meats from families here 50+ years — then watch the Azzurri together. One of NYC's great World Cup experiences.",
+    mustOrder: "Fresh pasta + local cheeses + prosciutto",
+    atmosphere: "Living Italian market",
+    countryAssociations: ['Italy'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'italy-frankies-457',
+    name: "Frankies 457 Spuntino",
+    type: 'restaurant',
+    address: "457 Court St, Carroll Gardens, Brooklyn",
+    borough: 'Brooklyn',
+    neighborhood: 'Carroll Gardens',
+    lat: 40.6766, lng: -73.9995,
+    why: "Carroll Gardens Italian institution — fogged-up windows, multigenerational neighborhood roots, tender meatballs, cavatelli with sausage. The Italian-American Brooklyn community's gathering spot for Azzurri matches.",
+    mustOrder: "Meatballs + cavatelli",
+    atmosphere: "Brooklyn Italian",
+    countryAssociations: ['Italy'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+
+  // ─── JAPAN ───────────────────────────────────────────────────────────────
+
+  {
+    id: 'japan-japan-village',
+    name: "Japan Village",
+    type: 'cultural',
+    address: "934 3rd Ave, Sunset Park, Brooklyn",
+    borough: 'Brooklyn',
+    neighborhood: 'Sunset Park',
+    lat: 40.6506, lng: -74.0043,
+    why: "20,000 sq ft of immersive Japanese culture in Industry City — 11 food stalls, Sunrise Mart, sake bar, cultural events. Called 'the Japanese Eataly' of NYC. The Japanese community gathers here for Samurai Blue matches.",
+    mustOrder: "Ramen + Japanese beer",
+    atmosphere: "Japanese cultural hub",
+    countryAssociations: ['Japan'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'japan-decibel',
+    name: "Decibel Sake Bar",
+    type: 'bar',
+    address: "240 E 9th St, East Village, Manhattan",
+    borough: 'Manhattan',
+    neighborhood: 'East Village',
+    lat: 40.7276, lng: -73.9855,
+    why: "NYC's most beloved Japanese sake bar — underground East Village institution. The after-match spot for Japanese expats celebrating a Samurai Blue win.",
+    mustOrder: "Sake flight + Japanese snacks",
+    atmosphere: "Underground Japanese",
+    countryAssociations: ['Japan'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: true,
+  },
+  {
+    id: 'japan-sunrise-mart',
+    name: "Sunrise Mart East Village",
+    type: 'cultural',
+    address: "4 Stuyvesant St, East Village, Manhattan",
+    borough: 'Manhattan',
+    neighborhood: 'East Village',
+    lat: 40.7291, lng: -73.9861,
+    why: "The Japanese community's essential grocery store. On Samurai Blue match days, Japanese expats stock up here before gathering at nearby izakayas — onigiri, Japanese snacks, cold Sapporo.",
+    mustOrder: "Onigiri + Sapporo",
+    atmosphere: "Community essential",
+    countryAssociations: ['Japan'],
+    isVerified: true, verifiedAt: '2026-04-01', isActive: true, featured: false,
+  },
+
 ];
- 
-/**
- * Get venues for a given country from the hardcoded data.
- * Returns venues sorted by: featured first, then type priority.
- */
+
 export function getHardcodedVenuesForCountry(
   countryName: string,
   borough?: string
@@ -646,15 +867,12 @@ export function getHardcodedVenuesForCountry(
     v.countryAssociations.includes(countryName) &&
     (!borough || v.borough === borough)
   );
- 
   const typeOrder: Record<string, number> = {
     'watch party': 0, bar: 1, restaurant: 2, cultural: 3,
   };
- 
   return venues.sort((a, b) => {
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
     return (typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9);
   });
 }
- 
