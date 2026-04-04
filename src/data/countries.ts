@@ -13,7 +13,7 @@ export const COUNTRIES: Country[] = [
   { name: "Denmark",      flag: "🇩🇰", colors: ["#C60C30","#C60C30","#FFFFFF"] },
   { name: "Ecuador",      flag: "🇪🇨", colors: ["#FFD100","#003580","#EF3340"] },
   { name: "Egypt",        flag: "🇪🇬", colors: ["#CE1126","#CE1126","#FFFFFF"] },
-  { name: "England",      flag: "🏴",  colors: ["#CF142B","#CF142B","#FFFFFF"] },
+  { name: "England",      flag: "🇬🇧",  colors: ["#CF142B","#CF142B","#FFFFFF"] },
   { name: "France",       flag: "🇫🇷", colors: ["#4169E1","#ED2939","#FFFFFF"] },
   { name: "Germany",      flag: "🇩🇪", colors: ["#FFCE00","#DD0000","#333333"] },
   { name: "Ghana",        flag: "🇬🇭", colors: ["#FCD116","#006B3F","#CE1126"] },
