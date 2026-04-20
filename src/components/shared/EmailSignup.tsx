@@ -1,26 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-/**
- * EmailSignup.tsx — Beehiiv integration
- * 
- * SETUP (5 minutes):
- * 1. Go to beehiiv.com → sign up
- * 2. Create a publication (e.g. "Golazo NYC")
- * 3. Settings → API → create an API key
- * 4. Copy your Publication ID from Settings → General (looks like pub_xxxxxxxx)
- * 5. Paste both values below
- * 
- * NOTE: Beehiiv's API requires a server-side call (can't call from browser directly
- * due to CORS). This component calls a Next.js API route at /api/subscribe
- * which you also need to create — see the api-subscribe-route.ts file.
- */
+const STORAGE_KEY = 'golazo_subscribed';
 
 export default function EmailSignup({ accent = '#E8C84A' }: { accent?: string }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [alreadySubscribed, setAlreadySubscribed] = useState(false);
+
+  // Check on mount if they already subscribed on this device
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const subscribed = localStorage.getItem(STORAGE_KEY);
+      if (subscribed === 'true') setAlreadySubscribed(true);
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -42,6 +38,8 @@ export default function EmailSignup({ accent = '#E8C84A' }: { accent?: string })
       const data = await res.json();
 
       if (res.ok) {
+        // Save to localStorage so we don't show the form again
+        localStorage.setItem(STORAGE_KEY, 'true');
         setStatus('success');
       } else {
         throw new Error(data.error || 'Subscription failed');
@@ -52,7 +50,11 @@ export default function EmailSignup({ accent = '#E8C84A' }: { accent?: string })
     }
   }
 
+  // Don't show anything if already subscribed
+  if (alreadySubscribed) return null;
+
   if (status === 'success') {
+    // Save and show thank you briefly
     return (
       <div
         className="rounded p-5 text-center"
@@ -63,7 +65,7 @@ export default function EmailSignup({ accent = '#E8C84A' }: { accent?: string })
           You&apos;re in!
         </div>
         <p className="text-xs text-zinc-500">
-          We&apos;ll send you World Cup NYC updates as the tournament gets close.
+          Check your inbox — we sent you a welcome note. See you this summer.
         </p>
       </div>
     );
