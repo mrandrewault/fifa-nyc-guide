@@ -421,7 +421,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       { say: "This food is incredible!", means: "This food don do! (Pidgin)" },
     ],
   },
-},
+
 
   "Australia": {
     headline: "Aussie Aussie Aussie — NYC Welcomes the Socceroos",
@@ -442,6 +442,8 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       { say: "No worries!", means: "New Yorkers genuinely love hearing this" },
     ],
   },
+       };
+
 export function getGenericGuideText(countryName: string): GuideText {
   return {
     headline: `${countryName} Fans Find Their NYC Home`,
