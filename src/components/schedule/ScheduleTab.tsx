@@ -1,5 +1,6 @@
 'use client';
 
+import WeatherWidget from '@/components/shared/WeatherWidget';
 import { METLIFE_MATCHES } from '@/data/staticData';
 import { daysUntil } from '@/lib/utils';
 
@@ -23,6 +24,9 @@ export default function ScheduleTab() {
           Group stage through the Final · NJ Transit from Penn Station (~25 min)
         </p>
       </div>
+
+      {/* Live weather widget */}
+      <WeatherWidget />
 
       {/* Match cards */}
       <div className="space-y-3">
