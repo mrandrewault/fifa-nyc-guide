@@ -73,10 +73,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Show up to Green Field Churrascaria in Queens 2 hours before kickoff — the community pre-games there and the caipirinha pitcher deal is only available until the match starts.",
     chant: "Eu sou brasileiro, com muito orgulho!",
     phrases: [
-      { say: "What a goal!", means: "Que golaço! 🇧🇷" },
-      { say: "Cheers!", means: "Saúde! / Tim-tim!" },
       { say: "Where's the subway?", means: "Onde fica o metrô?" },
-      { say: "This neighborhood is incredible!", means: "Este bairro é incrível!" },
+      { say: "Drinks all around!", means: "Rodada pra todos!" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang — use it and you'll fit right in" },
+      { say: "What a goal!", means: "Que golaço! 🇧🇷" },
     ],
   },
   "Mexico": {
@@ -92,10 +92,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Roosevelt Avenue in Jackson Heights runs 24/7 — after a Mexico win, the street party starts immediately at Corona Plaza and doesn't stop until sunrise. The 7 train is basically a Mexico City subway car on match days.",
     chant: "¡Cielito Lindo! Ay ay ay ay — canta y no llores",
     phrases: [
+      { say: "How do I get to Jackson Heights?", means: "¿Cómo llego a Jackson Heights?" },
+      { say: "Another round, please!", means: "¡Otra ronda, por favor!" },
+      { say: "Let's grab a slice", means: "NYC pizza lingo — means getting one pizza slice to-go" },
       { say: "What a goal!", means: "¡Qué golazo! 🇲🇽" },
-      { say: "Cheers!", means: "¡Salud!" },
-      { say: "Where's the subway?", means: "¿Dónde está el metro?" },
-      { say: "The food here is amazing!", means: "¡La comida aquí está increíble!" },
     ],
   },
   "Colombia": {
@@ -111,10 +111,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Jackson Heights turns into an outdoor festival when Colombia wins. Hang around 37th Avenue after the final whistle — the street party with cumbia and aguardiente is one of the great NYC experiences.",
     chant: "Chi chi chi, le le le, viva Colombia!",
     phrases: [
+      { say: "How do I get to Jackson Heights?", means: "¿Cómo llego a Jackson Heights?" },
+      { say: "Drinks all around!", means: "¡Una ronda para todos!" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang — locals will grin" },
       { say: "What a goal!", means: "¡Qué golazo! 🇨🇴" },
-      { say: "Cheers!", means: "¡Salud!" },
-      { say: "Which way to Jackson Heights?", means: "¿Cómo llego a Jackson Heights?" },
-      { say: "This bar is packed!", means: "¡Este bar está lleno!" },
     ],
   },
   "Argentina": {
@@ -130,10 +130,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "For big Argentina matches, Jackson Heights literally stops. Taxi drivers pull over, bodegas put TVs in the window, and 37th Avenue becomes impromptu Buenos Aires. Get there 90 minutes early.",
     chant: "Muchachos, ahora nos volvimos a ilusionar!",
     phrases: [
+      { say: "How do I get uptown?", means: "¿Cómo llego al norte de la ciudad?" },
+      { say: "Drinks all around!", means: "¡Una ronda para todos!" },
+      { say: "Let's grab a slice", means: "NYC pizza code — use it casually" },
       { say: "What a goal!", means: "¡Qué golazo! 🇦🇷" },
-      { say: "Cheers!", means: "¡Salud!" },
-      { say: "Where's the steakhouse?", means: "¿Dónde está la parrilla?" },
-      { say: "Incredible atmosphere!", means: "¡Qué ambiente increíble!" },
     ],
   },
   "England": {
@@ -149,10 +149,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Football Factory at Legends (6 W 33rd St) opens at 6am for European kickoffs and is already packed by 5:45am for big England matches. Find the NYC Three Lions group on social media to coordinate a reserved section.",
     chant: "It's coming home, it's coming home, football's coming home!",
     phrases: [
-      { say: "Cheers, mate! 🍺", means: "Already your language — use freely!" },
-      { say: "The subway here is just 'the subway'", means: "Not 'the tube' — New Yorkers will smile" },
-      { say: "Brilliant!", means: "New Yorkers love this word from a Brit" },
+      { say: "How do I get to Brooklyn?", means: "Say 'get' not 'reach' — that's the NYC way" },
       { say: "Can I get a pint?", means: "They'll know what you mean everywhere" },
+      { say: "It's hot as balls today!", means: "NYC summer slang — much better than 'it's warm'" },
+      { say: "Brilliant!", means: "New Yorkers love this word from a Brit" },
     ],
   },
   "Germany": {
@@ -168,10 +168,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Zum Schneider closed its Ave C location but does massive World Cup pop-ups — check zumschneider.com for their 2026 outdoor events. Their 'Munich on the East River' screenings hold 1,000+ people and are the most authentic German experience in NYC.",
     chant: "Deutschland, Deutschland über alles — Oh wie ist das schön!",
     phrases: [
+      { say: "How do I get to Williamsburg?", means: "Wie komme ich nach Williamsburg?" },
+      { say: "Drinks all around!", means: "Eine Runde für alle!" },
+      { say: "It's hot as balls today!", means: "Pure NYC slang — locals will grin if you say it" },
       { say: "What a goal!", means: "Was für ein Tor! 🇩🇪" },
-      { say: "Cheers!", means: "Prost!" },
-      { say: "Where's the beer hall?", means: "Wo ist die Bierhalle?" },
-      { say: "This is incredible!", means: "Das ist unglaublich!" },
     ],
   },
   "France": {
@@ -187,10 +187,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "The Alliance Française de New York (22 E 60th St) sometimes hosts official watch parties for major French national team matches. Worth checking their schedule — it's a completely different crowd from the soccer bars.",
     chant: "Allez les Bleus, allez!",
     phrases: [
+      { say: "How do I get to Brooklyn?", means: "Comment aller à Brooklyn?" },
+      { say: "Drinks all around!", means: "Une tournée générale!" },
+      { say: "It's hot as balls today!", means: "Pure NYC slang — locals love hearing this from a visitor" },
       { say: "What a goal!", means: "Quel but! 🇫🇷" },
-      { say: "Cheers!", means: "Santé!" },
-      { say: "Where's the nearest bar?", means: "Où est le bar le plus proche?" },
-      { say: "The food here is fantastic!", means: "La nourriture ici est fantastique!" },
     ],
   },
   "Italy": {
@@ -206,10 +206,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Arthur Avenue in the Bronx is not optional — you must go. The vendors at the Arthur Avenue Retail Market put screens in their stalls. Buy a slice, grab a cannoli, and watch Italy with people whose families have been in the Bronx since 1920.",
     chant: "Campioni d'Europa, siamo noi — campioni del mondo!",
     phrases: [
+      { say: "How do I get to Arthur Avenue?", means: "Come arrivo ad Arthur Avenue?" },
+      { say: "Let's grab a slice", means: "NYC pizza lingo — you'll blend in instantly" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang" },
       { say: "What a goal!", means: "Che gol! 🇮🇹" },
-      { say: "Cheers!", means: "Cin cin! / Salute!" },
-      { say: "Where's Arthur Avenue?", means: "Dov'è Arthur Avenue?" },
-      { say: "This pizza is incredible!", means: "Questa pizza è incredibile!" },
     ],
   },
   "Spain": {
@@ -225,10 +225,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "La Nacional (239 W 14th St) is the real gem — call ahead before a Spain match. It's a private club but opens its doors on big match days. It feels like being transported to a 1960s Madrid social club. Nothing in NYC compares.",
     chant: "¡Campeones, campeones, olé olé olé!",
     phrases: [
+      { say: "Where can I catch a cab?", means: "¿Dónde puedo tomar un taxi?" },
+      { say: "Drinks all around!", means: "¡Una ronda para todos!" },
+      { say: "It's hot as balls today!", means: "Pure NYC slang — use it to sound like a local" },
       { say: "What a goal!", means: "¡Qué golazo! 🇪🇸" },
-      { say: "Cheers!", means: "¡Salud!" },
-      { say: "Where's La Nacional?", means: "¿Dónde está La Nacional?" },
-      { say: "Amazing atmosphere!", means: "¡Qué ambiente!" },
     ],
   },
   "Portugal": {
@@ -244,10 +244,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "The real Portuguese experience near NYC is in Newark's Ironbound district — 30 min by NJ Transit from Penn Station. Ferry Street becomes an outdoor festival for Portugal matches. It's absolutely worth the trip.",
     chant: "Portugal! Portugal! Campeões do mundo!",
     phrases: [
+      { say: "How do I get to Newark?", means: "Como chego a Newark?" },
+      { say: "Drinks all around!", means: "Uma rodada para todos!" },
+      { say: "Let's grab a slice", means: "NYC pizza code — locals appreciate it" },
       { say: "What a goal!", means: "Que golo! 🇵🇹" },
-      { say: "Cheers!", means: "Saúde!" },
-      { say: "Is Newark far?", means: "Newark fica longe?" },
-      { say: "This city is incredible!", means: "Esta cidade é incrível!" },
     ],
   },
   "Netherlands": {
@@ -263,10 +263,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Dutch fans have an official NYC Supporters Club — look up Oranje Supporters NYC before you arrive. They coordinate reserved sections at Football Factory at Legends and usually show up with the best orange wigs in the city.",
     chant: "Hup Holland Hup, Nederland boven alles!",
     phrases: [
+      { say: "Where's the subway?", means: "Waar is de metro?" },
+      { say: "What's on tap?", means: "Wat hebben jullie van de tap?" },
+      { say: "It's hot as balls today!", means: "Classic NYC summer phrase" },
       { say: "What a goal!", means: "Wat een goal! 🇳🇱" },
-      { say: "Cheers!", means: "Proost!" },
-      { say: "Where can I find Dutch beer?", means: "Waar kan ik Nederlands bier vinden?" },
-      { say: "Incredible city!", means: "Geweldige stad!" },
     ],
   },
   "Japan": {
@@ -282,10 +282,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "After a Japan win, the Japanese fan tradition of cleaning up the stadium has become famous worldwide. NYC Japanese fans have adopted this — they genuinely clean the bar after a victory. Join them. It's one of the most remarkable sights in sports.",
     chant: "Nippon, Nippon, Nippon! (日本！日本！日本！)",
     phrases: [
+      { say: "How do I get to the East Village?", means: "イーストビレッジへの行き方は？" },
+      { say: "Drinks all around!", means: "みんなに一杯ずつ！(Minna ni ippai zutsu!)" },
+      { say: "Let's grab a slice", means: "NYC pizza greeting — use it to fit in" },
       { say: "What a goal!", means: "素晴らしいゴール！(Sugoi gōru!) 🇯🇵" },
-      { say: "Cheers!", means: "乾杯！(Kanpai!)" },
-      { say: "Where's the East Village?", means: "イーストビレッジはどこですか？" },
-      { say: "This ramen is amazing!", means: "このラーメン最高！(Kono rāmen saikō!)" },
     ],
   },
   "South Korea": {
@@ -301,10 +301,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "32nd Street in Koreatown completely closes to traffic for big Korean national team matches — the city unofficially allows it. Show up in the street, watch outdoor screens, and experience 5,000 Koreans cheering at full volume.",
     chant: "대한민국! (Daehan Minguk!) — clap clap clap clap clap",
     phrases: [
+      { say: "How do I get to Koreatown?", means: "코리아타운에 어떻게 가요?" },
+      { say: "Another round!", means: "한 잔 더! (Han jan deo!)" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang" },
       { say: "What a goal!", means: "대박 골! (Daebak gol!) 🇰🇷" },
-      { say: "Cheers!", means: "건배! (Geonbae!)" },
-      { say: "Where's Koreatown?", means: "코리아타운이 어디예요?" },
-      { say: "This BBQ is incredible!", means: "진짜 맛있다! (Jinjja masitda!)" },
     ],
   },
   "Norway": {
@@ -320,10 +320,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Bay Ridge on Syttende Mai (May 17 — Norwegian Constitution Day) throws one of NYC's great neighborhood parades. The energy from that community carries right into World Cup season. Show up to Kabin early for Norway matches.",
     chant: "Norge, Norge, Norge! Heia Norge!",
     phrases: [
+      { say: "How do I get to Bay Ridge?", means: "Hvordan kommer jeg til Bay Ridge?" },
+      { say: "Drinks all around!", means: "En runde til alle!" },
+      { say: "It's hot as balls today!", means: "NYC summer vernacular" },
       { say: "What a goal!", means: "For et mål! 🇳🇴" },
-      { say: "Cheers!", means: "Skål!" },
-      { say: "Where's Bay Ridge?", means: "Hvor er Bay Ridge?" },
-      { say: "This city never sleeps!", means: "Denne byen sover aldri!" },
     ],
   },
   "Ecuador": {
@@ -339,10 +339,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Corona Plaza (Roosevelt Ave & 103rd St, Queens) becomes an unofficial outdoor watch party for every Ecuador match. Thousands of fans, car horns, street food vendors, and the entire community in one square. Nothing else like it in NYC.",
     chant: "¡Sí se puede, Ecuador! ¡La Tri, la Tri!",
     phrases: [
+      { say: "How do I get to Corona?", means: "¿Cómo llego a Corona?" },
+      { say: "Drinks all around!", means: "¡Una ronda para todos!" },
+      { say: "Let's grab a slice", means: "NYC pizza lingo — use it casually" },
       { say: "What a goal!", means: "¡Qué golazo! 🇪🇨" },
-      { say: "Cheers!", means: "¡Salud!" },
-      { say: "Where's Corona Plaza?", means: "¿Dónde está Corona Plaza?" },
-      { say: "The ceviche here is incredible!", means: "¡El ceviche aquí está increíble!" },
     ],
   },
   "Senegal": {
@@ -358,10 +358,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Harlem's Lenox Avenue has an informal Senegalese community gathering before major Lions of Téranga matches. The drumming and call-and-response singing outside Ponty Bistro is extraordinary — one of the most moving things you'll see in the city.",
     chant: "Lions de la Téranga! Sénégal! Sénégal!",
     phrases: [
-      { say: "What a goal!", means: "Quel but! / Dafa baax! 🇸🇳" },
-      { say: "Cheers!", means: "Santé! / Jërejëf!" },
-      { say: "Where's Harlem?", means: "Harlem bi def nu?" },
-      { say: "Incredible energy!", means: "Dafa am yëgël gi!" },
+      { say: "How do I get to Harlem?", means: "Comment aller à Harlem?" },
+      { say: "Drinks all around!", means: "Une tournée pour tous!" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang — locals will love hearing it" },
+      { say: "What a goal!", means: "Quel but! 🇸🇳" },
     ],
   },
   "Morocco": {
@@ -377,10 +377,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "After Morocco's 2022 run, the Bronx Moroccan community threw street parties that lasted until 4am. Expect the same energy in 2026. The Fordham Road area becomes entirely Moroccan flag territory for big matches.",
     chant: "Maroc, Maroc! Allahu Akbar, ya Maghrib!",
     phrases: [
+      { say: "How do I get to the Bronx?", means: "Comment aller au Bronx?" },
+      { say: "Another round!", means: "Une autre tournée!" },
+      { say: "It's hot as balls today!", means: "NYC summer vernacular" },
       { say: "What a goal!", means: "Quel but! / Golaazo! 🇲🇦" },
-      { say: "Cheers!", means: "Bsaha! (بصحة)" },
-      { say: "Where's Steinway Street?", means: "Fayn Steinway Street? (فاين؟)" },
-      { say: "This mint tea is good!", means: "Atay mzyan! (أتاي مزيان)" },
     ],
   },
   "United States": {
@@ -396,10 +396,10 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "The American Outlaws NYC chapter coordinates pre-match marches from Penn Station to the NJ Transit platform. Join them — it's one of the great World Cup 2026 experiences. Find them on social media before match day.",
     chant: "I believe that we will win! I believe that we will win!",
     phrases: [
-      { say: "It's coming home... wait, wrong sport 😂", means: "Ice breaker with English fans" },
-      { say: "Cheers!", means: "Universal — and you already know it" },
-      { say: "I believe that we will win!", means: "The chant — shout it loud" },
-      { say: "Let's go!", means: "NYC's all-purpose rallying cry" },
+      { say: "How do I get to MetLife?", means: "NJ Transit from Penn Station — ask for 'Secaucus Junction'" },
+      { say: "Drinks all around!", means: "Classic bar move — earns instant friends" },
+      { say: "It's hot as balls today!", means: "NYC summer slang — use it with pride" },
+      { say: "I believe that we will win!", means: "The USMNT chant — shout it loud" },
     ],
   },
   "Nigeria": {
@@ -415,14 +415,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Flatbush Avenue in Brooklyn transforms completely for Nigeria matches. The sidewalk turns into an outdoor viewing party — vendors set up suya grills and generators power outdoor TVs. Show up 45 minutes before kickoff.",
     chant: "Super Eagles! Super Eagles! Fly, fly, fly!",
     phrases: [
+      { say: "How do I get to Flatbush?", means: "How I go reach Flatbush? (Pidgin version)" },
+      { say: "Drinks all around!", means: "E be things for everyone! (Pidgin)" },
+      { say: "It's hot as balls today!", means: "NYC summer slang — locals will love it" },
       { say: "What a goal!", means: "Na goal! E don enter! 🇳🇬" },
-      { say: "Cheers!", means: "E be things! (Pidgin toast)" },
-      { say: "Where's Flatbush?", means: "How I go reach Flatbush?" },
-      { say: "This food is incredible!", means: "This food don do! (Pidgin)" },
     ],
   },
-
-
   "Australia": {
     headline: "Aussie Aussie Aussie — NYC Welcomes the Socceroos",
     vibe: "Australia's NYC community is scattered but enthusiastic — mostly professionals in finance and tech, with a strong expat social scene. Socceroos fans are fun, relaxed, and know how to have a good time. Old Mate's Place in the East Village is the community anchor.",
@@ -436,13 +434,13 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     insider: "Old Mate's Place (113 St Marks Pl, East Village) is genuinely the hub — when Australia plays, every Australian in New York shows up. Get there early. The bartenders know the community by name.",
     chant: "Aussie Aussie Aussie, Oi Oi Oi!",
     phrases: [
-      { say: "G'day! 🦘", means: "Already your language — use freely!" },
-      { say: "The subway here is just 'the subway'", means: "Not 'the train' — locals will appreciate it" },
+      { say: "How do I get to the East Village?", means: "NYC-speak: 'get' not 'reach'" },
       { say: "Can I shout a round?", means: "NYC bartenders love this — means buying everyone a drink" },
+      { say: "It's hot as balls today!", means: "Aussie-friendly NYC summer slang" },
       { say: "No worries!", means: "New Yorkers genuinely love hearing this" },
     ],
   },
-       };
+};
 
 export function getGenericGuideText(countryName: string): GuideText {
   return {
