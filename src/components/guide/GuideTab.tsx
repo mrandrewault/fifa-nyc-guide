@@ -7,6 +7,7 @@ import { COUNTRIES, GUIDE_TEXT, getGenericGuideText } from '@/data/countries';
 import { VENUES } from '@/data/venues';
 import { safeAccent, textOn, sortVenues } from '@/lib/utils';
 import VenueList from '@/components/shared/VenueList';
+import EmailSignup from '@/components/shared/EmailSignup';
 
 const MapView = dynamic(() => import('@/components/shared/MapView'), {
   ssr: false,
@@ -216,6 +217,9 @@ export default function GuideTab() {
             ))}
           </div>
           <p className="label text-zinc-600" style={{ letterSpacing: '0.1em' }}>Select your country to begin</p>
+          <div className="mt-8">
+  <EmailSignup />
+</div>
           <style>{`@keyframes float { from { transform: translateY(0); } to { transform: translateY(-8px); } }`}</style>
         </div>
       )}
