@@ -178,14 +178,15 @@ export default function GuideTab() {
           {/* What to say */}
           {guideText.phrases && guideText.phrases.length > 0 && (
             <div className="mb-5 rounded p-4" style={{ background: '#0D0D0D', border: '1px solid #222' }}>
-              <div className="label text-[9px] mb-3" style={{ color: accent, letterSpacing: '0.2em' }}>
-                💬 What to say
+              <div className="label text-[9px] mb-1" style={{ color: accent, letterSpacing: '0.2em' }}>
+                💬 Useful English phrases
               </div>
+              <p className="text-[10px] text-zinc-600 mb-3">Say these in NYC — translation in your language below each one</p>
               <div className="grid grid-cols-2 gap-2">
                 {guideText.phrases.map((p, i) => (
                   <div key={i} className="rounded p-2.5" style={{ background: '#161616', border: '1px solid #2A2A2A' }}>
-                    <div className="text-sm font-medium text-white leading-tight mb-0.5">{p.say}</div>
-                    <div className="text-[10px] text-zinc-500">{p.means}</div>
+                    <div className="text-sm font-semibold text-white leading-tight mb-1">{p.say}</div>
+                    <div className="text-[10px] text-zinc-500 leading-relaxed">{p.means}</div>
                   </div>
                 ))}
               </div>
