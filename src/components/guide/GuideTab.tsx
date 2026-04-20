@@ -8,6 +8,7 @@ import { VENUES } from '@/data/venues';
 import { safeAccent, textOn, sortVenues } from '@/lib/utils';
 import VenueList from '@/components/shared/VenueList';
 import EmailSignup from '@/components/shared/EmailSignup';
+import MySpots from '@/components/shared/MySpots';
 
 const MapView = dynamic(() => import('@/components/shared/MapView'), {
   ssr: false,
@@ -203,6 +204,9 @@ export default function GuideTab() {
             </div>
           )}
 
+          {/* My Spots — shows saved venues for this country */}
+          <MySpots accent={accent} filterCountry={selected.name} />
+
           <div className="mt-4 text-center">
             <p className="text-[10px] text-zinc-700">
               {allVenues.length} venues · {allVenues.filter(v => v.lat && v.lng).length} mapped
@@ -217,9 +221,15 @@ export default function GuideTab() {
             ))}
           </div>
           <p className="label text-zinc-600" style={{ letterSpacing: '0.1em' }}>Select your country to begin</p>
+
+          {/* My Spots — shows all saved venues on home screen */}
+          <div className="mt-6 text-left">
+            <MySpots accent="#E8C84A" />
+          </div>
+
           <div className="mt-8">
-  <EmailSignup />
-</div>
+            <EmailSignup />
+          </div>
           <style>{`@keyframes float { from { transform: translateY(0); } to { transform: translateY(-8px); } }`}</style>
         </div>
       )}
