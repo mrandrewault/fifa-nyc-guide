@@ -65,31 +65,46 @@ export default function TranslateWidget() {
       <div id="google_translate_element" style={{ display: 'none' }} />
 
       <div className="relative">
+        {/* Bigger, more prominent button */}
         <button
           onClick={() => setOpen(o => !o)}
-          className="flex items-center gap-1.5 rounded px-2.5 py-1.5 transition-colors"
+          className="flex items-center gap-2 rounded-full transition-all duration-200"
           style={{
-            background: active ? '#E8C84A22' : '#161616',
-            border: `1px solid ${active ? '#E8C84A55' : '#333'}`,
-            color: active ? '#E8C84A' : '#888',
+            background: active ? '#E8C84A' : '#1E1E1E',
+            border: `1px solid ${active ? '#E8C84A' : '#3A3A3A'}`,
+            color: active ? '#000' : '#ccc',
+            padding: '7px 14px',
           }}
         >
-          <span className="text-sm">{activeLang ? activeLang.flag : '🌐'}</span>
-          <span className="label text-[10px]">{activeLang ? activeLang.label : 'Translate'}</span>
-          <span className="text-[9px] text-zinc-600">▼</span>
+          <span style={{ fontSize: '15px', lineHeight: 1 }}>
+            {activeLang ? activeLang.flag : '🌐'}
+          </span>
+          <span
+            className="label"
+            style={{
+              fontSize: '10px',
+              letterSpacing: '0.12em',
+              color: active ? '#000' : '#ccc',
+            }}
+          >
+            {activeLang ? activeLang.label : 'Translate'}
+          </span>
+          <span style={{ fontSize: '8px', opacity: 0.6 }}>▼</span>
         </button>
 
+        {/* Dropdown */}
         {open && (
           <div
-            className="absolute right-0 top-full mt-1 z-50 rounded border border-zinc-800 shadow-2xl overflow-hidden"
-            style={{ background: '#161616', minWidth: '160px' }}
+            className="absolute right-0 top-full mt-2 z-50 rounded-lg border border-zinc-800 shadow-2xl overflow-hidden"
+            style={{ background: '#161616', minWidth: '170px' }}
           >
+            {/* Active language reset */}
             {active && (
               <button
                 onClick={resetToEnglish}
-                className="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-zinc-800 border-b border-zinc-900"
+                className="flex w-full items-center gap-3 px-4 py-2.5 text-left hover:bg-zinc-800 border-b border-zinc-900"
               >
-                <span>🇺🇸</span>
+                <span style={{ fontSize: '15px' }}>🇺🇸</span>
                 <span className="label text-[11px] text-zinc-400">English (reset)</span>
               </button>
             )}
@@ -97,13 +112,19 @@ export default function TranslateWidget() {
               <button
                 key={lang.code}
                 onClick={() => translate(lang.code)}
-                className="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-zinc-800 border-b border-zinc-900"
+                className="flex w-full items-center gap-3 px-4 py-2.5 text-left hover:bg-zinc-800 border-b border-zinc-900 transition-colors"
                 style={{ background: active === lang.code ? '#E8C84A11' : 'transparent' }}
               >
-                <span>{lang.flag}</span>
-                <span className="label text-[11px]" style={{ color: active === lang.code ? '#E8C84A' : '#ccc' }}>
+                <span style={{ fontSize: '15px' }}>{lang.flag}</span>
+                <span
+                  className="label text-[11px]"
+                  style={{ color: active === lang.code ? '#E8C84A' : '#ccc' }}
+                >
                   {lang.label}
                 </span>
+                {active === lang.code && (
+                  <span style={{ marginLeft: 'auto', color: '#E8C84A', fontSize: '10px' }}>✓</span>
+                )}
               </button>
             ))}
           </div>
