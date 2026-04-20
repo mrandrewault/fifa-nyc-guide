@@ -1,5 +1,10 @@
 import type { Country, Guide } from '@/types';
 
+// ─── MetLife Stadium teams (pinned to top of country selector) ───────────────
+export const METLIFE_TEAMS = [
+  'Brazil', 'France', 'Senegal', 'Norway', 'Germany', 'Ecuador', 'Panama', 'England',
+];
+
 export const COUNTRIES: Country[] = [
   { name: "Argentina",    flag: "🇦🇷", colors: ["#74ACDF","#FFDF00","#FFFFFF"] },
   { name: "Australia",    flag: "🇦🇺", colors: ["#CC0001","#00008B","#FFFFFF"] },
@@ -13,7 +18,7 @@ export const COUNTRIES: Country[] = [
   { name: "Denmark",      flag: "🇩🇰", colors: ["#C60C30","#C60C30","#FFFFFF"] },
   { name: "Ecuador",      flag: "🇪🇨", colors: ["#FFD100","#003580","#EF3340"] },
   { name: "Egypt",        flag: "🇪🇬", colors: ["#CE1126","#CE1126","#FFFFFF"] },
-  { name: "England",      flag: "🇬🇧",  colors: ["#CF142B","#CF142B","#FFFFFF"] },
+  { name: "England",      flag: "🇬🇧", colors: ["#CF142B","#CF142B","#FFFFFF"] },
   { name: "France",       flag: "🇫🇷", colors: ["#4169E1","#ED2939","#FFFFFF"] },
   { name: "Germany",      flag: "🇩🇪", colors: ["#FFCE00","#DD0000","#333333"] },
   { name: "Ghana",        flag: "🇬🇭", colors: ["#FCD116","#006B3F","#CE1126"] },
@@ -23,19 +28,20 @@ export const COUNTRIES: Country[] = [
   { name: "Italy",        flag: "🇮🇹", colors: ["#009246","#CE2B37","#FFFFFF"] },
   { name: "Ivory Coast",  flag: "🇨🇮", colors: ["#F77F00","#009A44","#FFFFFF"] },
   { name: "Japan",        flag: "🇯🇵", colors: ["#BC002D","#BC002D","#FFFFFF"] },
-  { name: "South Korea",  flag: "🇰🇷", colors: ["#CD2E3A","#003478","#FFFFFF"] },
   { name: "Mexico",       flag: "🇲🇽", colors: ["#006847","#CE1126","#FFFFFF"] },
   { name: "Morocco",      flag: "🇲🇦", colors: ["#C1272D","#006233","#C1272D"] },
   { name: "Netherlands",  flag: "🇳🇱", colors: ["#FF6600","#21468B","#FFFFFF"] },
   { name: "New Zealand",  flag: "🇳🇿", colors: ["#CC142B","#00247D","#FFFFFF"] },
   { name: "Nigeria",      flag: "🇳🇬", colors: ["#008751","#008751","#FFFFFF"] },
   { name: "Norway",       flag: "🇳🇴", colors: ["#EF2B2D","#002868","#FFFFFF"] },
+  { name: "Panama",       flag: "🇵🇦", colors: ["#DA121A","#004B9D","#FFFFFF"] },
   { name: "Peru",         flag: "🇵🇪", colors: ["#D91023","#D91023","#FFFFFF"] },
   { name: "Poland",       flag: "🇵🇱", colors: ["#DC143C","#DC143C","#FFFFFF"] },
   { name: "Portugal",     flag: "🇵🇹", colors: ["#FF0000","#006600","#FFFFFF"] },
   { name: "Saudi Arabia", flag: "🇸🇦", colors: ["#006C35","#006C35","#FFFFFF"] },
   { name: "Senegal",      flag: "🇸🇳", colors: ["#00853F","#FDEF42","#E31B23"] },
   { name: "Serbia",       flag: "🇷🇸", colors: ["#C6363C","#0C4076","#FFFFFF"] },
+  { name: "South Korea",  flag: "🇰🇷", colors: ["#CD2E3A","#003478","#FFFFFF"] },
   { name: "Spain",        flag: "🇪🇸", colors: ["#AA151B","#F1BF00","#AA151B"] },
   { name: "Sweden",       flag: "🇸🇪", colors: ["#FECC02","#006AA7","#FECC02"] },
   { name: "Switzerland",  flag: "🇨🇭", colors: ["#FF0000","#FF0000","#FFFFFF"] },
@@ -46,11 +52,11 @@ export const COUNTRIES: Country[] = [
   { name: "Venezuela",    flag: "🇻🇪", colors: ["#CF142B","#003893","#CF142B"] },
 ];
 
-// ─── Guide text (vibe, insider, chant) per country ───────────────────────────
-// Venues come from venues.ts — this file only has the narrative content.
+// ─── Guide text per country ───────────────────────────────────────────────────
 
 type GuideText = Pick<Guide, 'headline' | 'vibe' | 'insider' | 'chant'> & {
   boroughHighlights: Record<string, string>;
+  phrases?: { say: string; means: string }[];
 };
 
 export const GUIDE_TEXT: Record<string, GuideText> = {
@@ -66,6 +72,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "Show up to Green Field Churrascaria in Queens 2 hours before kickoff — the community pre-games there and the caipirinha pitcher deal is only available until the match starts.",
     chant: "Eu sou brasileiro, com muito orgulho!",
+    phrases: [
+      { say: "Vai Brasil! 🇧🇷", means: "Go Brazil!" },
+      { say: "Boa noite!", means: "Good evening!" },
+      { say: "Obrigado/Obrigada", means: "Thank you (m/f)" },
+      { say: "Que golaço!", means: "What a great goal!" },
+    ],
   },
   "Mexico": {
     headline: "Arriba México — Five Boroughs Are Watching",
@@ -79,6 +91,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "Roosevelt Avenue in Jackson Heights runs 24/7 — after a Mexico win, the street party starts immediately at Corona Plaza and doesn't stop until sunrise. The 7 train is basically a Mexico City subway car on match days.",
     chant: "¡Cielito Lindo! Ay ay ay ay — canta y no llores",
+    phrases: [
+      { say: "¡Arriba México! 🇲🇽", means: "Up with Mexico!" },
+      { say: "¡Qué golazo!", means: "What a goal!" },
+      { say: "¡Ándale!", means: "Come on! / Let's go!" },
+      { say: "¡Sale!", means: "Alright! / Sounds good!" },
+    ],
   },
   "Colombia": {
     headline: "Colombia Corazón — Queens Is Our Cathedral",
@@ -92,6 +110,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "Jackson Heights turns into an outdoor festival when Colombia wins. Hang around 37th Avenue after the final whistle — the street party with cumbia and aguardiente is one of the great NYC experiences.",
     chant: "Chi chi chi, le le le, viva Colombia!",
+    phrases: [
+      { say: "¡Vamos Colombia! 🇨🇴", means: "Let's go Colombia!" },
+      { say: "¡Qué chimba!", means: "How awesome! (Colombian slang)" },
+      { say: "¡Dale!", means: "Come on! / Do it!" },
+      { say: "¡Parcero/Parcera!", means: "Friend! (Colombian)" },
+    ],
   },
   "Argentina": {
     headline: "Vamos Argentina — NYC's Albiceleste Army",
@@ -105,6 +129,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "For big Argentina matches, Jackson Heights literally stops. Taxi drivers pull over, bodegas put TVs in the window, and 37th Avenue becomes impromptu Buenos Aires. Get there 90 minutes early.",
     chant: "Muchachos, ahora nos volvimos a ilusionar!",
+    phrases: [
+      { say: "¡Vamos Argentina! 🇦🇷", means: "Let's go Argentina!" },
+      { say: "¡Ché, qué golazo!", means: "Hey, what a goal! (Argentine)" },
+      { say: "¡Boludo!", means: "Mate! (friendly Argentine term)" },
+      { say: "¡Re copado!", means: "So cool! (Argentine slang)" },
+    ],
   },
   "England": {
     headline: "Three Lions in the City That Never Sleeps",
@@ -118,6 +148,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "Football Factory at Legends (6 W 33rd St) opens at 6am for European kickoffs and is already packed by 5:45am for big England matches. Find the NYC Three Lions group on social media to coordinate a reserved section.",
     chant: "It's coming home, it's coming home, football's coming home!",
+    phrases: [
+      { say: "Come on England! 🏴󠁧󠁢󠁥󠁮󠁧󠁿", means: "Self-explanatory 🍺" },
+      { say: "Cheers, mate!", means: "Thanks, friend!" },
+      { say: "Brilliant!", means: "Fantastic! / Great!" },
+      { say: "Bloody hell!", means: "Oh my goodness!" },
+    ],
   },
   "Germany": {
     headline: "Auf Geht's — Brooklyn's Beer Hall Awaits",
@@ -131,6 +167,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "Zum Schneider closed its Ave C location but does massive World Cup pop-ups — check zumschneider.com for their 2026 outdoor events. Their 'Munich on the East River' screenings hold 1,000+ people and are the most authentic German experience in NYC.",
     chant: "Deutschland, Deutschland über alles — Oh wie ist das schön!",
+    phrases: [
+      { say: "Auf geht's Deutschland! 🇩🇪", means: "Let's go Germany!" },
+      { say: "Prost!", means: "Cheers!" },
+      { say: "Wahnsinn!", means: "Incredible! / Insane!" },
+      { say: "Danke schön!", means: "Thank you very much!" },
+    ],
   },
   "France": {
     headline: "Allez les Bleus — Paris Meets Manhattan",
@@ -144,6 +186,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "The Alliance Française de New York (22 E 60th St) sometimes hosts official watch parties for major French national team matches. Worth checking their schedule — it's a completely different crowd from the soccer bars.",
     chant: "Allez les Bleus, allez!",
+    phrases: [
+      { say: "Allez les Bleus! 🇫🇷", means: "Come on, the Blues!" },
+      { say: "Santé!", means: "Cheers!" },
+      { say: "Incroyable!", means: "Incredible!" },
+      { say: "Merci beaucoup!", means: "Thank you very much!" },
+    ],
   },
   "Italy": {
     headline: "Forza Azzurri — The Bronx Awaits You",
@@ -157,6 +205,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "Arthur Avenue in the Bronx is not optional — you must go. The vendors at the Arthur Avenue Retail Market put screens in their stalls. Buy a slice, grab a cannoli, and watch Italy with people whose families have been in the Bronx since 1920.",
     chant: "Campioni d'Europa, siamo noi — campioni del mondo!",
+    phrases: [
+      { say: "Forza Azzurri! 🇮🇹", means: "Come on, Blue shirts!" },
+      { say: "Cin cin!", means: "Cheers!" },
+      { say: "Che bello!", means: "How beautiful!" },
+      { say: "Madonna mia!", means: "Oh my goodness!" },
+    ],
   },
   "Spain": {
     headline: "¡Vamos España! — NYC's Furia Roja",
@@ -170,6 +224,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "La Nacional (239 W 14th St) is the real gem — call ahead before a Spain match. It's a private club but opens its doors on big match days. It feels like being transported to a 1960s Madrid social club. Nothing in NYC compares.",
     chant: "¡Campeones, campeones, olé olé olé!",
+    phrases: [
+      { say: "¡Vamos España! 🇪🇸", means: "Let's go Spain!" },
+      { say: "¡Salud!", means: "Cheers!" },
+      { say: "¡Olé!", means: "Bravo! / Yes!" },
+      { say: "¡Qué pasada!", means: "Amazing! (Spanish slang)" },
+    ],
   },
   "Portugal": {
     headline: "Força Portugal — Newark to the Bronx",
@@ -183,6 +243,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "The real Portuguese experience near NYC is in Newark's Ironbound district — 30 min by NJ Transit from Penn Station. Ferry Street becomes an outdoor festival for Portugal matches. It's absolutely worth the trip.",
     chant: "Portugal! Portugal! Campeões do mundo!",
+    phrases: [
+      { say: "Força Portugal! 🇵🇹", means: "Come on Portugal!" },
+      { say: "Saúde!", means: "Cheers!" },
+      { say: "Que espetáculo!", means: "What a show!" },
+      { say: "Obrigado/Obrigada!", means: "Thank you (m/f)!" },
+    ],
   },
   "Netherlands": {
     headline: "Hup Holland Hup — Orange Takes Manhattan",
@@ -196,6 +262,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "Dutch fans have an official NYC Supporters Club — look up Oranje Supporters NYC before you arrive. They coordinate reserved sections at Football Factory at Legends and usually show up with the best orange wigs in the city.",
     chant: "Hup Holland Hup, Nederland boven alles!",
+    phrases: [
+      { say: "Hup Holland Hup! 🇳🇱", means: "Go Holland Go!" },
+      { say: "Proost!", means: "Cheers!" },
+      { say: "Geweldig!", means: "Wonderful! / Amazing!" },
+      { say: "Dankjewel!", means: "Thank you!" },
+    ],
   },
   "Japan": {
     headline: "Nippon Chant — NYC's Japan in Every Borough",
@@ -209,6 +281,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "After a Japan win, the Japanese fan tradition of cleaning up the stadium has become famous worldwide. NYC Japanese fans have adopted this — they genuinely clean the bar after a victory. Join them. It's one of the most remarkable sights in sports.",
     chant: "Nippon, Nippon, Nippon! (日本！日本！日本！)",
+    phrases: [
+      { say: "ニッポン！(Nippon!) 🇯🇵", means: "Japan!" },
+      { say: "かんぱい！(Kanpai!)", means: "Cheers!" },
+      { say: "すごい！(Sugoi!)", means: "Amazing! / Incredible!" },
+      { say: "ありがとう！(Arigatou!)", means: "Thank you!" },
+    ],
   },
   "South Korea": {
     headline: "대한민국! — Koreatown Never Sleeps",
@@ -220,8 +298,90 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       "The Bronx": "The Bronx Korean community is smaller but devoted.",
       "Staten Island": "Staten Island's Korean community has a dedicated local following.",
     },
-    insider: "32nd Street in Koreatown completely closes to traffic for big Korean national team matches — the city unofficially allows it. Show up in the street, watch outdoor screens, and experience 5,000 Koreans cheering at full volume. One of the great NYC sports experiences.",
+    insider: "32nd Street in Koreatown completely closes to traffic for big Korean national team matches — the city unofficially allows it. Show up in the street, watch outdoor screens, and experience 5,000 Koreans cheering at full volume.",
     chant: "대한민국! (Daehan Minguk!) — clap clap clap clap clap",
+    phrases: [
+      { say: "대한민국! (Daehan Minguk!) 🇰🇷", means: "Republic of Korea!" },
+      { say: "건배! (Geonbae!)", means: "Cheers!" },
+      { say: "대박! (Daebak!)", means: "Awesome! / Epic!" },
+      { say: "화이팅! (Hwaiting!)", means: "Fighting! / You can do it!" },
+    ],
+  },
+  "Norway": {
+    headline: "Norge! — Bay Ridge to the Lower East Side",
+    vibe: "Norway's NYC presence goes back over a century in Bay Ridge, Brooklyn — once called 'Lapskaus Boulevard.' The modern Norwegian community has spread to Manhattan, but Bay Ridge remains the historic heart. Norway plays at MetLife on June 22 and June 27.",
+    boroughHighlights: {
+      Manhattan: "Kabin on Rivington St is NYC's only dedicated Norwegian bar — the community anchor for match days.",
+      Brooklyn: "Bay Ridge's 'Lapskaus Boulevard' is NYC's historic Norwegian neighborhood — the Danish Athletic Club carries the tradition.",
+      Queens: "Queens Scandinavian community is scattered but gathers for big matches.",
+      "The Bronx": "The Bronx community watches at European-friendly pubs.",
+      "Staten Island": "Staten Island has limited Norwegian options but welcoming pubs.",
+    },
+    insider: "Bay Ridge on Syttende Mai (May 17 — Norwegian Constitution Day) throws one of NYC's great neighborhood parades. The energy from that community carries right into World Cup season. Show up to Kabin early for Norway matches.",
+    chant: "Norge, Norge, Norge! Heia Norge!",
+    phrases: [
+      { say: "Heia Norge! 🇳🇴", means: "Go Norway!" },
+      { say: "Skål!", means: "Cheers!" },
+      { say: "Utrolig!", means: "Incredible!" },
+      { say: "Takk!", means: "Thanks!" },
+    ],
+  },
+  "Ecuador": {
+    headline: "¡Vamos La Tri! — Corona Is Our Home",
+    vibe: "Ecuador's NYC community is massive in Queens — Corona and Jackson Heights are among the most Ecuadorian places outside Ecuador. La Tri matches are neighborhood events with music, ceviche, and flags hanging from every window. Ecuador plays at MetLife on June 25.",
+    boroughHighlights: {
+      Manhattan: "The Garment District and Hell's Kitchen have Ecuadorian restaurants for match watching.",
+      Brooklyn: "Sunset Park has a growing Ecuadorian community with authentic spots.",
+      Queens: "Corona and Jackson Heights are the epicenter — this is the Ecuadorian heart of NYC.",
+      "The Bronx": "The South Bronx has a significant Ecuadorian community with community restaurants.",
+      "Staten Island": "Staten Island's Latin community includes Ecuadorian fans.",
+    },
+    insider: "Corona Plaza (Roosevelt Ave & 103rd St, Queens) becomes an unofficial outdoor watch party for every Ecuador match. Thousands of fans, car horns, street food vendors, and the entire community in one square. Nothing else like it in NYC.",
+    chant: "¡Sí se puede, Ecuador! ¡La Tri, la Tri!",
+    phrases: [
+      { say: "¡Vamos Ecuador! 🇪🇨", means: "Let's go Ecuador!" },
+      { say: "¡Arriba La Tri!", means: "Up with the national team!" },
+      { say: "¡Qué chévere!", means: "How cool! (Ecuadorian)" },
+      { say: "¡Ñañito!", means: "Brother! / Mate! (Ecuadorian)" },
+    ],
+  },
+  "Senegal": {
+    headline: "Lions de la Téranga — Harlem's Pride",
+    vibe: "Senegal's NYC community is tightly knit and deeply proud — concentrated in Harlem and the Bronx. The Lions of Téranga get passionate support with West African music, thiéboudienne, and communal pride that fills the streets. Senegal plays at MetLife twice.",
+    boroughHighlights: {
+      Manhattan: "Harlem is the heart of Senegalese NYC — Little Senegal on 116th Street is the cultural anchor.",
+      Brooklyn: "Crown Heights and Flatbush have West African communities including Senegalese fans.",
+      Queens: "Jamaica and South Queens have Senegalese community connections.",
+      "The Bronx": "The Bronx's West African community includes a significant Senegalese presence.",
+      "Staten Island": "Staten Island's Senegalese community is small but present.",
+    },
+    insider: "Harlem's Lenox Avenue has an informal Senegalese community gathering before major Lions of Téranga matches. The drumming and call-and-response singing outside Ponty Bistro is extraordinary — one of the most moving things you'll see in the city.",
+    chant: "Lions de la Téranga! Sénégal! Sénégal!",
+    phrases: [
+      { say: "Sénégal! Sénégal! 🇸🇳", means: "Senegal!" },
+      { say: "Yaakar! (ياقار)", means: "Hope! / Believe!" },
+      { say: "Dama baax!", means: "It's great! (Wolof)" },
+      { say: "Jërejëf!", means: "Thank you! (Wolof)" },
+    ],
+  },
+  "Morocco": {
+    headline: "Atlas Lions Roar — From Astoria to the Bronx",
+    vibe: "Morocco's 2022 World Cup run made the Moroccan community one of NYC's most visible fan groups. Concentrated in the Bronx and Astoria. The Atlas Lions bring North African pride and some of the loudest singing you'll hear anywhere in the city. Morocco plays at MetLife on June 13.",
+    boroughHighlights: {
+      Manhattan: "The East Village and Hell's Kitchen have Moroccan restaurants that pack out for Atlas Lions matches.",
+      Brooklyn: "Bay Ridge and Sunset Park have growing North African communities.",
+      Queens: "Steinway Street in Astoria is the North African hub — cafes become Atlas Lions HQ on match days.",
+      "The Bronx": "The Bronx has the most significant Moroccan community in NYC — Fordham Road area is the epicenter.",
+      "Staten Island": "Staten Island has limited Moroccan options but intimate spots for local fans.",
+    },
+    insider: "After Morocco's 2022 run, the Bronx Moroccan community threw street parties that lasted until 4am. Expect the same energy in 2026. The Fordham Road area becomes entirely Moroccan flag territory for big matches.",
+    chant: "Maroc, Maroc! Allahu Akbar, ya Maghrib!",
+    phrases: [
+      { say: "Yallah Maghrib! 🇲🇦", means: "Let's go Morocco!" },
+      { say: "Bsaha!", means: "Cheers! / To your health! (Darija)" },
+      { say: "Mzyan bzzaf!", means: "Very good! (Moroccan Arabic)" },
+      { say: "Shukran!", means: "Thank you! (Arabic)" },
+    ],
   },
   "United States": {
     headline: "USA! USA! — The Host Nation's Home Ground",
@@ -235,6 +395,12 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "The American Outlaws NYC chapter coordinates pre-match marches from Penn Station to the NJ Transit platform. Join them — it's one of the great World Cup 2026 experiences. Find them on social media before match day.",
     chant: "I believe that we will win! I believe that we will win!",
+    phrases: [
+      { say: "USA! USA! USA! 🇺🇸", means: "Self-explanatory 🦅" },
+      { say: "Let's go!", means: "Come on!" },
+      { say: "What a save! / What a goal!", means: "Direct and honest 🍺" },
+      { say: "SUBWAY SERIES!", means: "Shout this if you're playing NYC teams" },
+    ],
   },
   "Nigeria": {
     headline: "Super Eagles Fly Over Flatbush and the Bronx",
@@ -248,36 +414,15 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     },
     insider: "Flatbush Avenue in Brooklyn transforms completely for Nigeria matches. The sidewalk turns into an outdoor viewing party — vendors set up suya grills and generators power outdoor TVs. Show up 45 minutes before kickoff.",
     chant: "Super Eagles! Super Eagles! Fly, fly, fly!",
-  },
-  "Morocco": {
-    headline: "Atlas Lions Roar — From Astoria to the Bronx",
-    vibe: "Morocco's 2022 World Cup run made the Moroccan community one of NYC's most visible fan groups. Concentrated in the Bronx and Astoria. The Atlas Lions bring North African pride and some of the loudest singing you'll hear anywhere in the city.",
-    boroughHighlights: {
-      Manhattan: "The East Village and Hell's Kitchen have Moroccan restaurants that pack out for Atlas Lions matches.",
-      Brooklyn: "Bay Ridge and Sunset Park have growing North African communities.",
-      Queens: "Steinway Street in Astoria is the North African hub — cafes become Atlas Lions HQ on match days.",
-      "The Bronx": "The Bronx has the most significant Moroccan community in NYC — Fordham Road area is the epicenter.",
-      "Staten Island": "Staten Island has limited Moroccan options but intimate spots for local fans.",
-    },
-    insider: "After Morocco's 2022 run, the Bronx Moroccan community threw street parties that lasted until 4am. Expect the same energy in 2026. The Fordham Road area becomes entirely Moroccan flag territory for big matches.",
-    chant: "Maroc, Maroc! Allahu Akbar, ya Maghrib!",
-  },
-  "Senegal": {
-    headline: "Lions de la Téranga — Harlem's Pride",
-    vibe: "Senegal's NYC community is tightly knit and deeply proud — concentrated in Harlem and the Bronx. The Lions of Téranga get passionate support with West African music, thiéboudienne, and communal pride that fills the streets.",
-    boroughHighlights: {
-      Manhattan: "Harlem is the heart of Senegalese NYC — Little Senegal on 116th Street is the cultural anchor.",
-      Brooklyn: "Crown Heights and Flatbush have West African communities including Senegalese fans.",
-      Queens: "Jamaica and South Queens have Senegalese community connections.",
-      "The Bronx": "The Bronx's West African community includes a significant Senegalese presence.",
-      "Staten Island": "Staten Island's Senegalese community is small but present.",
-    },
-    insider: "Harlem's Lenox Avenue has an informal Senegalese community gathering before major Lions of Téranga matches. The drumming and call-and-response singing outside Ponty Bistro is extraordinary — one of the most moving things you'll see in the city.",
-    chant: "Lions de la Téranga! Sénégal! Sénégal!",
+    phrases: [
+      { say: "Naija! Naija! 🇳🇬", means: "Nigeria! Nigeria!" },
+      { say: "E don do!", means: "It's done! / We got it! (Pidgin)" },
+      { say: "Omo, na goal!", means: "That was a goal! (Pidgin)" },
+      { say: "E be things!", means: "This is something! (Pidgin slang)" },
+    ],
   },
 };
 
-// Generic guide text for countries without specific entries
 export function getGenericGuideText(countryName: string): GuideText {
   return {
     headline: `${countryName} Fans Find Their NYC Home`,
@@ -291,5 +436,9 @@ export function getGenericGuideText(countryName: string): GuideText {
     },
     insider: "Download the OneFootball app before you arrive — it has a venue-finder feature to locate nearby watch parties for any country. Football Factory at Legends (6 W 33rd St) hosts 30+ supporter clubs and is always a safe bet.",
     chant: `Go ${countryName}! Go ${countryName}!`,
+    phrases: [
+      { say: `Go ${countryName}!`, means: "Show your colors!" },
+      { say: "Cheers!", means: "Universal language 🍺" },
+    ],
   };
 }
