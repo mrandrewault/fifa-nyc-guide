@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import type { Country } from '@/types';
-import { COUNTRIES, GUIDE_TEXT, getGenericGuideText } from '@/data/countries';
+import { COUNTRIES, GUIDE_TEXT, METLIFE_TEAMS, getGenericGuideText } from '@/data/countries';
 import { VENUES } from '@/data/venues';
 import { safeAccent, textOn, sortVenues } from '@/lib/utils';
 import VenueList from '@/components/shared/VenueList';
@@ -26,6 +26,10 @@ const BOROUGH_EMOJI: Record<string, string> = {
 const FLOATING_FLAGS = ['🇧🇷', '🇲🇽', '🇩🇪', '🇫🇷', '🇦🇷', '🇯🇵'];
 type ViewMode = 'list' | 'map';
 
+// Split countries into MetLife teams and the rest
+const METLIFE_COUNTRIES = COUNTRIES.filter(c => METLIFE_TEAMS.includes(c.name));
+const OTHER_COUNTRIES = COUNTRIES.filter(c => !METLIFE_TEAMS.includes(c.name));
+
 export default function GuideTab() {
   const [selected, setSelected] = useState<Country | null>(null);
   const [search, setSearch] = useState('');
@@ -35,10 +39,14 @@ export default function GuideTab() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const accent = safeAccent(selected?.colors ?? []);
-  const filtered = COUNTRIES.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
   const guideText = selected ? (GUIDE_TEXT[selected.name] ?? getGenericGuideText(selected.name)) : null;
   const allVenues = selected ? sortVenues(VENUES.filter(v => v.isActive && v.countryAssociations.includes(selected.name))) : [];
   const boroughVenues = allVenues.filter(v => v.borough === activeBorough);
+
+  // Filtered results for search
+  const searchLower = search.toLowerCase();
+  const filteredMetLife = METLIFE_COUNTRIES.filter(c => c.name.toLowerCase().includes(searchLower));
+  const filteredOther = OTHER_COUNTRIES.filter(c => c.name.toLowerCase().includes(searchLower));
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -74,27 +82,74 @@ export default function GuideTab() {
 
       {/* Country selector */}
       <div ref={dropdownRef} className="relative mb-6">
-        <div className="flex items-center gap-3 rounded px-4 py-3 transition-colors duration-300"
-          style={{ background: '#161616', border: `1px solid ${showDropdown || selected ? accent : '#333'}` }}>
+        <div
+          className="flex items-center gap-3 rounded px-4 py-3 transition-colors duration-300"
+          style={{ background: '#161616', border: `1px solid ${showDropdown || selected ? accent : '#333'}` }}
+        >
           {selected && !showDropdown && <span className="text-2xl leading-none flex-shrink-0">{selected.flag}</span>}
-          <input value={search}
+          <input
+            value={search}
             onChange={e => { setSearch(e.target.value); setShowDropdown(true); }}
             onFocus={() => { setSearch(''); setShowDropdown(true); }}
             placeholder={selected ? selected.name : 'Search your country...'}
-            className="label flex-1 bg-transparent outline-none text-white text-base placeholder-zinc-600" />
+            className="label flex-1 bg-transparent outline-none text-white text-base placeholder-zinc-600"
+          />
           <span className="text-zinc-600 text-xs">▼</span>
         </div>
+
         {showDropdown && (
-          <div className="absolute left-0 right-0 z-50 mt-1 max-h-60 overflow-y-auto rounded border border-zinc-800 shadow-2xl" style={{ background: '#161616', top: '100%' }}>
-            {filtered.length === 0
-              ? <div className="px-4 py-3 text-sm text-zinc-600">No country found</div>
-              : filtered.map(c => (
-                <button key={c.name} onClick={() => pickCountry(c)} className="flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-zinc-800 border-b border-zinc-900">
-                  <span className="text-xl">{c.flag}</span>
-                  <span className="label text-sm text-white">{c.name}</span>
-                </button>
-              ))
-            }
+          <div
+            className="absolute left-0 right-0 z-50 mt-1 max-h-72 overflow-y-auto rounded border border-zinc-800 shadow-2xl"
+            style={{ background: '#161616', top: '100%' }}
+          >
+            {/* MetLife section */}
+            {filteredMetLife.length > 0 && (
+              <>
+                <div
+                  className="px-4 py-2 label text-[9px] border-b border-zinc-900"
+                  style={{ color: '#E8C84A', letterSpacing: '0.2em', background: '#E8C84A0A' }}
+                >
+                  🏟 Playing at MetLife Stadium
+                </div>
+                {filteredMetLife.map(c => (
+                  <button
+                    key={c.name}
+                    onClick={() => pickCountry(c)}
+                    className="flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-zinc-800 border-b border-zinc-900"
+                  >
+                    <span className="text-xl">{c.flag}</span>
+                    <span className="label text-sm text-white">{c.name}</span>
+                    <span className="ml-auto label text-[9px] text-zinc-600">NYC match</span>
+                  </button>
+                ))}
+              </>
+            )}
+
+            {/* All nations section */}
+            {filteredOther.length > 0 && (
+              <>
+                <div
+                  className="px-4 py-2 label text-[9px] border-b border-zinc-900"
+                  style={{ color: '#666', letterSpacing: '0.2em', background: '#111' }}
+                >
+                  🌍 All nations
+                </div>
+                {filteredOther.map(c => (
+                  <button
+                    key={c.name}
+                    onClick={() => pickCountry(c)}
+                    className="flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-zinc-800 border-b border-zinc-900"
+                  >
+                    <span className="text-xl">{c.flag}</span>
+                    <span className="label text-sm text-white">{c.name}</span>
+                  </button>
+                ))}
+              </>
+            )}
+
+            {filteredMetLife.length === 0 && filteredOther.length === 0 && (
+              <div className="px-4 py-3 text-sm text-zinc-600">No country found</div>
+            )}
           </div>
         )}
       </div>
@@ -120,16 +175,46 @@ export default function GuideTab() {
             </div>
           </div>
 
+          {/* What to say */}
+          {guideText.phrases && guideText.phrases.length > 0 && (
+            <div className="mb-5 rounded p-4" style={{ background: '#0D0D0D', border: '1px solid #222' }}>
+              <div className="label text-[9px] mb-3" style={{ color: accent, letterSpacing: '0.2em' }}>
+                💬 What to say
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                {guideText.phrases.map((p, i) => (
+                  <div key={i} className="rounded p-2.5" style={{ background: '#161616', border: '1px solid #2A2A2A' }}>
+                    <div className="text-sm font-medium text-white leading-tight mb-0.5">{p.say}</div>
+                    <div className="text-[10px] text-zinc-500">{p.means}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* MetLife badge if applicable */}
+          {METLIFE_TEAMS.includes(selected.name) && (
+            <div className="mb-4 flex items-center gap-2 rounded px-3 py-2" style={{ background: '#E8C84A11', border: '1px solid #E8C84A33' }}>
+              <span>🏟️</span>
+              <span className="label text-[10px]" style={{ color: '#E8C84A', letterSpacing: '0.1em' }}>
+                {selected.name} plays at MetLife Stadium — see Matches tab for schedule
+              </span>
+            </div>
+          )}
+
           {/* View toggle */}
           <div className="flex gap-2 mb-4">
             {(['list', 'map'] as ViewMode[]).map(mode => (
-              <button key={mode} onClick={() => setViewMode(mode)}
+              <button
+                key={mode}
+                onClick={() => setViewMode(mode)}
                 className="label flex-1 rounded py-2.5 text-xs transition-all"
                 style={{
                   background: viewMode === mode ? accent : '#161616',
                   color: viewMode === mode ? textOn(accent) : '#888',
                   border: `1px solid ${viewMode === mode ? accent : '#2A2A2A'}`,
-                }}>
+                }}
+              >
                 {mode === 'list' ? '☰ List View' : '🗺 Map View'}
               </button>
             ))}
@@ -187,7 +272,9 @@ export default function GuideTab() {
                 </div>
               )}
 
-              <VenueList venues={boroughVenues} accent={accent}
+              <VenueList
+                venues={boroughVenues}
+                accent={accent}
                 emptyMessage={`No venues listed yet for ${selected.name} fans in ${activeBorough}. Try Map View to see all locations, or Football Factory at Legends (6 W 33rd St, Manhattan) welcomes fans of every nation.`}
               />
             </div>
@@ -204,7 +291,7 @@ export default function GuideTab() {
             </div>
           )}
 
-          {/* My Spots — shows saved venues for this country */}
+          {/* My Spots */}
           <MySpots accent={accent} filterCountry={selected.name} />
 
           <div className="mt-4 text-center">
@@ -222,7 +309,7 @@ export default function GuideTab() {
           </div>
           <p className="label text-zinc-600" style={{ letterSpacing: '0.1em' }}>Select your country to begin</p>
 
-          {/* My Spots — shows all saved venues on home screen */}
+          {/* My Spots on home screen */}
           <div className="mt-6 text-left">
             <MySpots accent="#E8C84A" />
           </div>
