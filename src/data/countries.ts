@@ -421,7 +421,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       { say: "This food is incredible!", means: "This food don do! (Pidgin)" },
     ],
   },
-};
+},
 
   "Australia": {
     headline: "Aussie Aussie Aussie — NYC Welcomes the Socceroos",
