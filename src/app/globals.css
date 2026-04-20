@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 /* ── App shell ── */
 :root {
   --bg: #0A0A0A;
   --surface: #111111;
+  --surface-2: #161616;
+  --surface-3: #1C1C1C;
   --border: #222222;
+  --border-subtle: #1A1A1A;
   --text: #FFFFFF;
-  --text-muted: #888888;
+  --text-muted: #999999;
   --text-dim: #555555;
   --accent-default: #E8C84A;
   --nav-height: 64px;
@@ -21,11 +22,11 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Georgia', serif;
-  overscroll-behavior: none;       /* prevents pull-to-refresh on mobile */
+  overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
+  font-size: 16px; /* base font size bump */
 }
 
-/* Prevent text size change on iOS orientation change */
 body {
   -webkit-text-size-adjust: 100%;
 }
@@ -51,6 +52,41 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* ── Body text improvements ── */
+p, .body-text {
+  line-height: 1.7;
+}
+
+/* Venue card description text — readable in a noisy bar */
+.venue-why {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #AAAAAA;
+}
+
+/* ── Card surface differentiation ── */
+.card-primary {
+  background: #111111;
+  border: 1px solid #252525;
+}
+
+.card-secondary {
+  background: #0D0D0D;
+  border: 1px solid #1E1E1E;
+}
+
+.card-elevated {
+  background: #161616;
+  border: 1px solid #2A2A2A;
+}
+
+/* ── Section dividers ── */
+.section-gap {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1A1A1A;
+}
+
 /* ── Bottom nav spacing ── */
 .content-area {
   padding-bottom: calc(var(--nav-height) + var(--safe-bottom));
@@ -60,7 +96,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* ── Floating flags animation ── */
+/* ── Animations ── */
 @keyframes float {
   from { transform: translateY(0); }
   to   { transform: translateY(-8px); }
@@ -71,6 +107,15 @@ body {
   to   { transform: rotate(360deg); }
 }
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.3s ease forwards;
+}
+
 /* ── iOS tap highlight ── */
 * {
   -webkit-tap-highlight-color: transparent;
@@ -79,3 +124,16 @@ body {
 /* ── Safe area padding for iPhone notch ── */
 .safe-top    { padding-top: env(safe-area-inset-top, 0px); }
 .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* ── Improved text rendering ── */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Link defaults ── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
