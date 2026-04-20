@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { Venue } from '@/types';
 import { typeColor, mapsEmbedUrl, mapsDirectionsUrl } from '@/lib/utils';
+import FavoriteButton from '@/components/shared/FavoriteButton';
 
 // ─── Map Modal ────────────────────────────────────────────────────────────────
 
@@ -20,7 +21,6 @@ function MapModal({ venue, onClose }: { venue: Venue; onClose: () => void }) {
         className="w-full max-w-lg overflow-hidden rounded-lg border border-zinc-700 bg-zinc-900"
         onClick={e => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="flex items-center justify-between gap-3 border-b border-zinc-800 px-4 py-3">
           <div className="min-w-0">
             <div className="label text-sm text-white truncate">{venue.name}</div>
@@ -34,7 +34,6 @@ function MapModal({ venue, onClose }: { venue: Venue; onClose: () => void }) {
           </button>
         </div>
 
-        {/* Map */}
         <div className="h-64">
           <iframe
             title={venue.name}
@@ -44,7 +43,6 @@ function MapModal({ venue, onClose }: { venue: Venue; onClose: () => void }) {
           />
         </div>
 
-        {/* Footer */}
         <div className="border-t border-zinc-800 p-3">
           <a
             href={directionsUrl}
@@ -66,6 +64,22 @@ function VenueCard({ venue, accent }: { venue: Venue; accent: string }) {
   const [showMap, setShowMap] = useState(false);
   const tc = typeColor(venue.type);
 
+  // Build FavoriteVenue shape from Venue
+  const favoriteVenue = {
+    id: venue.id,
+    name: venue.name,
+    type: venue.type,
+    address: venue.address,
+    borough: venue.borough,
+    neighborhood: venue.neighborhood,
+    why: venue.why,
+    mustOrder: venue.mustOrder,
+    atmosphere: venue.atmosphere,
+    countryAssociations: venue.countryAssociations,
+    lat: venue.lat,
+    lng: venue.lng,
+  };
+
   return (
     <>
       <div
@@ -77,22 +91,25 @@ function VenueCard({ venue, accent }: { venue: Venue; accent: string }) {
         }}
       >
         <div className="p-4">
-          {/* Name + type badge */}
+          {/* Name + type badge + heart */}
           <div className="mb-2 flex items-start justify-between gap-2">
             <h3 className="label text-sm text-white leading-tight flex-1">{venue.name}</h3>
-            <span
-              className="label flex-shrink-0 rounded px-1.5 py-0.5 text-[10px]"
-              style={{ background: `${tc}22`, color: tc }}
-            >
-              {venue.type}
-            </span>
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <FavoriteButton venue={favoriteVenue} size="sm" />
+              <span
+                className="label rounded px-1.5 py-0.5 text-[10px]"
+                style={{ background: `${tc}22`, color: tc }}
+              >
+                {venue.type}
+              </span>
+            </div>
           </div>
 
           {/* Address */}
           <div className="mb-2 text-xs text-zinc-600">📍 {venue.address}</div>
 
-          {/* Why */}
-          <p className="mb-3 text-xs leading-relaxed text-zinc-400">{venue.why}</p>
+          {/* Why — bumped to 13px for readability */}
+          <p className="mb-3 text-[13px] leading-relaxed text-zinc-400">{venue.why}</p>
 
           {/* Footer: order + map */}
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-zinc-800 pt-2">
