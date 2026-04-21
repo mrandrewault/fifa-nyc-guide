@@ -4,13 +4,23 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Golazo NYC — World Cup 2026 Fan Guide',
   description: 'Your borough-by-borough guide to watching FIFA World Cup 2026 in New York City. Find your people, your bars, your food. For fans of every nation.',
-  manifest: '/manifest.json',
+  manifest: '/site.webmanifest',
   metadataBase: new URL('https://golazo.nyc'),
   alternates: {
     canonical: 'https://golazo.nyc',
   },
   keywords: ['World Cup 2026', 'FIFA NYC', 'New York City fan guide', 'MetLife Stadium', 'soccer bars NYC', 'World Cup New York'],
   authors: [{ name: 'Golazo NYC' }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
@@ -24,18 +34,18 @@ export const metadata: Metadata = {
     siteName: 'Golazo NYC',
     images: [
       {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
+        url: '/apple-touch-icon.png',
+        width: 180,
+        height: 180,
         alt: 'Golazo NYC — Your World Cup 2026 Fan Guide',
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'Golazo NYC — World Cup 2026 Fan Guide',
     description: 'Find your people in NYC for the 2026 World Cup. Borough by borough guides for every nation.',
-    images: ['/og-image.png'],
+    images: ['/apple-touch-icon.png'],
   },
   robots: {
     index: true,
@@ -63,9 +73,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         {/* Structured data for Google */}
         <script
