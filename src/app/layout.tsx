@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Golazo NYC — World Cup 2026 Fan Guide',
-  description: 'Your borough-by-borough guide to watching FIFA World Cup 2026 in New York City. Find your people, your bars, your food. For fans of every nation.',
+  title: 'Golazo NYC — The World\'s Guide to the World Cup in NYC',
+  description: 'Find your fans, find your bars, find your way. Borough-by-borough guide to watching FIFA World Cup 2026 in New York City. For fans of every nation.',
   manifest: '/site.webmanifest',
   metadataBase: new URL('https://golazo.nyc'),
   alternates: {
@@ -27,25 +27,25 @@ export const metadata: Metadata = {
     title: 'Golazo NYC',
   },
   openGraph: {
-    title: 'Golazo NYC — World Cup 2026 Fan Guide',
-    description: 'Find your people in NYC for the 2026 World Cup. Borough by borough guides for every nation — bars, food, transit, and match day plans.',
+    title: 'The World\'s Guide to the World Cup in NYC',
+    description: 'Find your fans, find your bars, find your way. Borough-by-borough guide for FIFA World Cup 2026.',
     type: 'website',
     url: 'https://golazo.nyc',
     siteName: 'Golazo NYC',
     images: [
       {
-        url: '/apple-touch-icon.png',
-        width: 180,
-        height: 180,
-        alt: 'Golazo NYC — Your World Cup 2026 Fan Guide',
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Golazo NYC — The World\'s Guide to the World Cup in NYC',
       },
     ],
   },
   twitter: {
-    card: 'summary',
-    title: 'Golazo NYC — World Cup 2026 Fan Guide',
-    description: 'Find your people in NYC for the 2026 World Cup. Borough by borough guides for every nation.',
-    images: ['/apple-touch-icon.png'],
+    card: 'summary_large_image',
+    title: 'The World\'s Guide to the World Cup in NYC',
+    description: 'Find your fans, find your bars, find your way. Borough-by-borough guide for FIFA World Cup 2026.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -82,7 +82,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebApplication",
               "name": "Golazo NYC",
-              "description": "Borough-by-borough fan guide for FIFA World Cup 2026 in New York City",
+              "description": "The World's Guide to the World Cup in NYC — borough-by-borough fan guide for FIFA World Cup 2026",
               "url": "https://golazo.nyc",
               "applicationCategory": "TravelApplication",
               "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
