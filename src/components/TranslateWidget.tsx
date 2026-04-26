@@ -20,20 +20,49 @@ declare global {
   interface Window { googleTranslateElementInit: () => void; }
 }
 
-// Read the current language from the googtrans cookie that Google Translate sets.
-// Cookie format looks like: googtrans=/en/es  (the second segment is the target language)
+// Read the current target language from the googtrans cookie that Google Translate sets.
+// Cookie format: googtrans=/en/es  → second segment is the target language.
 function getLanguageFromCookie(): string {
   if (typeof document === 'undefined') return 'en';
   const match = document.cookie.match(/googtrans=\/[^/]+\/([a-z-]+)/);
   return match ? match[1] : 'en';
 }
 
+// Nuke the googtrans cookie on every domain variant Google might have set it on.
+// Google sets this cookie on multiple domains (e.g. "golazo.nyc" AND ".golazo.nyc"),
+// and missing any one of them means the cookie survives the reload and re-translates the page.
+function clearAllTranslateCookies() {
+  if (typeof document === 'undefined') return;
+
+  const hostname = window.location.hostname;
+  const expired = 'expires=Thu, 01 Jan 1970 00:00:00 UTC';
+
+  // Build every plausible domain variant.
+  const domains = new Set<string>();
+  domains.add(hostname);                  // e.g. "golazo.nyc"
+  domains.add('.' + hostname);            // e.g. ".golazo.nyc"
+
+  // Also handle subdomains like "www.golazo.nyc" by stripping back to root.
+  const parts = hostname.split('.');
+  if (parts.length > 2) {
+    const root = parts.slice(-2).join('.');
+    domains.add(root);
+    domains.add('.' + root);
+  }
+
+  // Clear with no domain specified (covers the variant set on the exact host).
+  document.cookie = `googtrans=; ${expired}; path=/`;
+
+  // Clear on every domain variant.
+  domains.forEach(domain => {
+    document.cookie = `googtrans=; ${expired}; path=/; domain=${domain}`;
+  });
+}
+
 export default function TranslateWidget() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>('en');
 
-  // Sync the active language from the cookie on mount, so the UI reflects
-  // reality even after a page reload or when arriving via a translated link.
   useEffect(() => {
     setActive(getLanguageFromCookie());
 
@@ -54,11 +83,12 @@ export default function TranslateWidget() {
   function selectLanguage(langCode: string) {
     setOpen(false);
 
-    // Selecting English = reset to original (clear cookies, reload).
+    // Selecting English = full reset to original page language.
     if (langCode === 'en') {
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
-      window.location.reload();
+      clearAllTranslateCookies();
+      // Force a hard navigation rather than a reload so any in-memory translation
+      // state from the Google script is also discarded.
+      window.location.href = window.location.pathname + window.location.search;
       return;
     }
 
@@ -76,7 +106,9 @@ export default function TranslateWidget() {
   const activeLang = LANGUAGES.find(l => l.code === active) ?? LANGUAGES[0];
 
   return (
-    <>
+    // The "notranslate" class tells Google Translate to leave this entire widget alone.
+    // Without it, Google translates our own dropdown labels (e.g. "English" → "Inglês").
+    <div className="notranslate" translate="no">
       <div id="google_translate_element" style={{ display: 'none' }} />
 
       <div className="relative">
@@ -140,6 +172,6 @@ export default function TranslateWidget() {
         .skiptranslate { display: none !important; }
         #goog-gt-tt { display: none !important; }
       `}</style>
-    </>
+    </div>
   );
 }
