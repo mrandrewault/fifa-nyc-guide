@@ -9,6 +9,7 @@ import { safeAccent, textOn, sortVenues } from '@/lib/utils';
 import VenueList from '@/components/shared/VenueList';
 import EmailSignup from '@/components/shared/EmailSignup';
 import MySpots from '@/components/shared/MySpots';
+import SubmitVenueCTA from '@/components/SubmitVenueCTA';
 
 const MapView = dynamic(() => import('@/components/shared/MapView'), {
   ssr: false,
@@ -292,6 +293,9 @@ export default function GuideTab() {
             </div>
           )}
 
+          {/* Submit a venue CTA — context-aware, pre-fills the country */}
+          <SubmitVenueCTA country={selected.name} />
+
           {/* My Spots */}
           <MySpots accent={accent} filterCountry={selected.name} />
 
@@ -318,6 +322,12 @@ export default function GuideTab() {
           <div className="mt-8">
             <EmailSignup />
           </div>
+
+          {/* Submit a venue CTA — generic, no country pre-fill on home screen */}
+          <div className="mt-6 text-left">
+            <SubmitVenueCTA />
+          </div>
+
           <style>{`@keyframes float { from { transform: translateY(0); } to { transform: translateY(-8px); } }`}</style>
         </div>
       )}
