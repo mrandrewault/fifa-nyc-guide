@@ -445,7 +445,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
 export function getGenericGuideText(countryName: string): GuideText {
   return {
     headline: `${countryName} fans, this page is yours to build.`,
-    vibe: `We're still mapping ${countryName}'s NYC scene. The community is smaller and more scattered than the headline countries, but the spots exist — we just haven't found them all yet. Know a great ${countryName} spot in NYC? Help us build the guide. Scroll down to tell us where to add it.`,
+    vibe: `We're still mapping ${countryName}'s NYC scene. The community is here — we just haven't tracked down all the spots yet. Know a great ${countryName} spot in NYC? Help us build the guide. Scroll down to tell us where to add it.`,
     boroughHighlights: {
       Manhattan: `Manhattan has dedicated soccer bars that welcome fans of every nation — but we're still hunting for the specifically ${countryName} spots.`,
       Brooklyn: `Brooklyn's borough-by-borough international scene is deep — we just haven't mapped ${countryName}'s pocket yet.`,
