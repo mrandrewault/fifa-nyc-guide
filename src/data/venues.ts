@@ -1167,6 +1167,17 @@ export const VENUES: Venue[] = [
 
 ];
 
+/**
+ * Returns active venues associated with a given country, optionally filtered
+ * by borough, sorted by specificity-aware priority.
+ *
+ * Sort priority (matches src/lib/utils.ts sortVenues so both code paths agree):
+ * 1. SPECIFICITY: country-specific venues (1-2 countries) rank highest,
+ *    then regional (3-5 countries), then catch-all (6+ countries).
+ *    The Brazilian fan sees Bar Goyana before Football Factory.
+ * 2. FEATURED: within each tier, featured venues rank above non-featured.
+ * 3. TYPE: within each tier+featured group, watch party → bar → restaurant → cultural.
+ */
 export function getHardcodedVenuesForCountry(
   countryName: string,
   borough?: string
@@ -1176,12 +1187,29 @@ export function getHardcodedVenuesForCountry(
     v.countryAssociations.includes(countryName) &&
     (!borough || v.borough === borough)
   );
+
   const typeOrder: Record<string, number> = {
     'watch party': 0, bar: 1, restaurant: 2, cultural: 3,
   };
+
+  // Specificity tier: fewer country associations = more specialized = ranks first.
+  const specificityTier = (associations?: string[]): number => {
+    const count = associations?.length ?? 0;
+    if (count <= 2) return 0; // specialist
+    if (count <= 5) return 1; // regional
+    return 2;                  // catch-all
+  };
+
   return venues.sort((a, b) => {
+    // 1. Specificity tier first (lower = more specialized = ranks first)
+    const tierDiff = specificityTier(a.countryAssociations) - specificityTier(b.countryAssociations);
+    if (tierDiff !== 0) return tierDiff;
+
+    // 2. Featured flag (true ranks first)
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
+
+    // 3. Type order (watch party first, etc.)
     return (typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9);
   });
 }
