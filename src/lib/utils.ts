@@ -75,18 +75,55 @@ export function mapsDirectionsUrl(venueName: string, address: string): string {
 export const VENUES_INITIAL_LIMIT = 3;
 
 /**
- * Priority sort: featured first, then by type importance for soccer watchers.
+ * Determines a venue's specificity tier based on how many countries it serves.
+ * Lower tier number = more specialized to a single community = ranks higher.
+ *
+ * Tier 0: Specialist  (1-2 countries) — the country-specific gems
+ * Tier 1: Regional    (3-5 countries) — venues serving a tight cluster
+ * Tier 2: Catch-all   (6+ countries)  — universal soccer bars, FIFA fan zones
  */
-export function sortVenues<T extends { featured?: boolean; type: VenueType }>(venues: T[]): T[] {
+function specificityTier(countryAssociations?: string[]): number {
+  const count = countryAssociations?.length ?? 0;
+  if (count <= 2) return 0; // specialist
+  if (count <= 5) return 1; // regional
+  return 2;                  // catch-all
+}
+
+/**
+ * Priority sort for venues displayed on a country page.
+ *
+ * Ordering rules, in priority order:
+ * 1. SPECIFICITY: country-specific venues (1-2 countries) rank highest,
+ *    then regional venues (3-5 countries), then catch-all venues (6+).
+ *    This ensures the Brazilian fan sees Bar Goyana before Football Factory.
+ * 2. FEATURED: within each tier, featured venues rank above non-featured.
+ * 3. TYPE: within each tier+featured group, sort by relevance for soccer:
+ *    watch party → bar → restaurant → cultural.
+ */
+export function sortVenues<
+  T extends {
+    featured?: boolean;
+    type: VenueType;
+    countryAssociations?: string[];
+  }
+>(venues: T[]): T[] {
   const typeOrder: Record<VenueType, number> = {
     'watch party': 0,
     bar: 1,
     restaurant: 2,
     cultural: 3,
   };
+
   return [...venues].sort((a, b) => {
+    // 1. Specificity tier (lower = more specialized = ranks first)
+    const tierDiff = specificityTier(a.countryAssociations) - specificityTier(b.countryAssociations);
+    if (tierDiff !== 0) return tierDiff;
+
+    // 2. Featured flag (true ranks first)
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
+
+    // 3. Type order (watch party first, etc.)
     return (typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9);
   });
 }
