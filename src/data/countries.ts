@@ -444,17 +444,17 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
 
 export function getGenericGuideText(countryName: string): GuideText {
   return {
-    headline: `${countryName} Fans Find Their NYC Home`,
-    vibe: `While ${countryName}'s NYC community may be smaller, the city's world-class soccer bar culture means you'll find passionate fellow fans at dedicated venues. NYC's international population guarantees a warm welcome in any jersey.`,
+    headline: `${countryName} fans, this page is yours to build.`,
+    vibe: `We're still mapping ${countryName}'s NYC scene. The community is smaller and more scattered than the headline countries, but the spots exist — we just haven't found them all yet. Know a great ${countryName} spot in NYC? Help us build the guide. Scroll down to tell us where to add it.`,
     boroughHighlights: {
-      Manhattan: `Manhattan's dedicated soccer bars are the best gathering point for ${countryName} fans.`,
-      Brooklyn: "Brooklyn's international bar scene welcomes fans of every nation.",
-      Queens: "Queens is the most diverse borough on Earth — every flag finds a home here.",
-      "The Bronx": "The Bronx's community pubs are welcoming to international fans.",
-      "Staten Island": "Staten Island's local bars carry all major World Cup matches.",
+      Manhattan: `Manhattan has dedicated soccer bars that welcome fans of every nation — but we're still hunting for the specifically ${countryName} spots.`,
+      Brooklyn: `Brooklyn's borough-by-borough international scene is deep — we just haven't mapped ${countryName}'s pocket yet.`,
+      Queens: `Queens is the most diverse borough on Earth and ${countryName}'s community is here somewhere — help us find it.`,
+      "The Bronx": `The Bronx's international communities run deep. If there's a ${countryName} spot here, we want to know about it.`,
+      "Staten Island": `Staten Island's international scene is small but specific. Know a ${countryName} spot here? Tell us.`,
     },
-    insider: "Download the OneFootball app before you arrive — it has a venue-finder feature to locate nearby watch parties for any country. Football Factory at Legends (6 W 33rd St) hosts 30+ supporter clubs and is always a safe bet.",
-    chant: `Go ${countryName}! Go ${countryName}!`,
+    insider: `If you're visiting NYC for the World Cup and your team is here too, Football Factory at Legends (6 W 33rd St, Manhattan) hosts 30+ supporter clubs and welcomes fans of every nation — a solid backup until we map your community.`,
+    chant: `Vamos ${countryName}!`,
     phrases: [
       { say: `Go ${countryName}!`, means: "Show your colors!" },
       { say: "Cheers!", means: "Universal language 🍺" },
