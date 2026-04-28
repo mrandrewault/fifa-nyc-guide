@@ -278,7 +278,7 @@ export default function GuideTab() {
               <VenueList
                 venues={boroughVenues}
                 accent={accent}
-                emptyMessage={`No venues listed yet for ${selected.name} fans in ${activeBorough}. Try Map View to see all locations, or Football Factory at Legends (6 W 33rd St, Manhattan) welcomes fans of every nation.`}
+                emptyMessage={`We haven't mapped ${selected.name} venues in ${activeBorough} yet. Know a great spot we should add? Scroll down to tell us — every submission makes the guide better.`}
               />
             </div>
           )}
