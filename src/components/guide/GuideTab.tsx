@@ -10,6 +10,7 @@ import VenueList from '@/components/shared/VenueList';
 import EmailSignup from '@/components/shared/EmailSignup';
 import MySpots from '@/components/shared/MySpots';
 import SubmitVenueCTA from '@/components/SubmitVenueCTA';
+import ShareButton from '@/components/ShareButton';
 
 const MapView = dynamic(() => import('@/components/shared/MapView'), {
   ssr: false,
@@ -293,6 +294,9 @@ export default function GuideTab() {
             </div>
           )}
 
+          {/* Share CTA — country-specific, with native share + WhatsApp buttons */}
+          <ShareButton country={selected.name} countryFlag={selected.flag} accent={accent} />
+
           {/* Submit a venue CTA — context-aware, pre-fills the country */}
           <SubmitVenueCTA country={selected.name} />
 
@@ -321,6 +325,11 @@ export default function GuideTab() {
 
           <div className="mt-8">
             <EmailSignup />
+          </div>
+
+          {/* Share CTA on home screen — generic, no country pre-fill */}
+          <div className="mt-6 text-left">
+            <ShareButton accent="#E8C84A" />
           </div>
 
           {/* Submit a venue CTA — generic, no country pre-fill on home screen */}
