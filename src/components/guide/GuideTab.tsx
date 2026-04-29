@@ -32,6 +32,41 @@ type ViewMode = 'list' | 'map';
 const METLIFE_COUNTRIES = COUNTRIES.filter(c => METLIFE_TEAMS.includes(c.name));
 const OTHER_COUNTRIES = COUNTRIES.filter(c => !METLIFE_TEAMS.includes(c.name));
 
+/**
+ * Returns the best borough to display first when a user picks a country.
+ *
+ * Picks whichever borough has the most active venues associated with that
+ * country. Ties are broken by BOROUGHS order (Manhattan first), so
+ * familiar boroughs win when venue counts are equal.
+ *
+ * If a country has zero venues anywhere, falls back to Manhattan as a
+ * familiar default — the empty-state copy on that page will gracefully
+ * point users to the submission form.
+ *
+ * Why this exists: a Bosnian fan picking "Bosnia and Herzegovina" should
+ * land on Queens (where the 3 Bosnian venues are), not Manhattan (where
+ * there are zero). Defaulting to Manhattan made every smaller-diaspora
+ * country feel empty even when they had real spots elsewhere.
+ */
+function getDefaultBorough(countryName: string): string {
+  const venuesForCountry = VENUES.filter(
+    v => v.isActive && v.countryAssociations.includes(countryName)
+  );
+
+  // No venues at all? Fall back to Manhattan (most familiar default).
+  if (venuesForCountry.length === 0) return 'Manhattan';
+
+  // Count venues per borough, preserving BOROUGHS order for tie-breaking.
+  const counts = BOROUGHS.map(b => ({
+    borough: b as string,
+    count: venuesForCountry.filter(v => v.borough === b).length,
+  }));
+
+  // Stable sort by count descending; ties keep the original BOROUGHS order.
+  counts.sort((a, b) => b.count - a.count);
+  return counts[0].borough;
+}
+
 export default function GuideTab() {
   const [selected, setSelected] = useState<Country | null>(null);
   const [search, setSearch] = useState('');
@@ -63,7 +98,9 @@ export default function GuideTab() {
 
   function pickCountry(c: Country) {
     setSelected(c); setSearch(c.name); setShowDropdown(false);
-    setActiveBorough('Manhattan'); setViewMode('list');
+    // Default to the borough with the most venues for this country, not always Manhattan.
+    // A Bosnian fan should land on Queens (3 venues), not Manhattan (0 venues).
+    setActiveBorough(getDefaultBorough(c.name)); setViewMode('list');
   }
 
   return (
