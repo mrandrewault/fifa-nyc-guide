@@ -4,6 +4,35 @@ import type { Country, Guide } from '@/types';
 export const METLIFE_TEAMS = [
   'Brazil', 'France', 'Senegal', 'Norway', 'Germany', 'Ecuador', 'Panama', 'England',
 ];
+// ─── Countries with NYC communities but NOT playing in World Cup 2026 ────────
+// Italy missed out on its third straight World Cup; Cameroon, Denmark, Poland,
+// Serbia all qualified for 2022 but not 2026. Their NYC scenes still exist
+// and are still worth visiting — the site honors them with their own dropdown
+// section and a clear banner on each country page.
+export const NOT_IN_2026 = [
+  'Cameroon', 'Chile', 'Denmark', 'Greece', 'Honduras', 'Italy',
+  'Nigeria', 'Peru', 'Poland', 'Serbia', 'Ukraine', 'Venezuela',
+];
+
+// Personalized neighborhood/landmark to namedrop in each non-qualifier's banner.
+// "but Arthur Avenue is here whenever you want it" feels warmer than a generic
+// "but the NYC scene is here". Falls back to the generic phrasing for countries
+// without a strong NYC anchor.
+export const NOT_IN_2026_NEIGHBORHOODS: Record<string, string> = {
+  'Italy': 'Arthur Avenue',
+  'Nigeria': 'Flatbush',
+  'Cameroon': 'the NYC West African scene',
+  'Chile': 'the South American community',
+  'Denmark': 'the Scandinavian community',
+  'Greece': 'Astoria',
+  'Honduras': 'the Central American community',
+  'Peru': 'the South American community',
+  'Poland': 'Greenpoint',
+  'Serbia': 'the Astoria Balkan community',
+  'Ukraine': 'the East Village',
+  'Venezuela': 'the South American community',
+};
+
 
 export const COUNTRIES: Country[] = [
   { name: "Argentina",    flag: "🇦🇷", colors: ["#74ACDF","#FFDF00","#FFFFFF"] },
@@ -196,8 +225,8 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     ],
   },
   "Italy": {
-    headline: "Forza Azzurri — The Bronx Awaits You",
-    vibe: "Italian fans in NYC have the luxury of the most authentic Italian-American neighborhoods in the world. Arthur Avenue in the Bronx is essentially a piece of Italy — the community has been here for generations and Azzurri matches are a neighborhood event.",
+    headline: "Forza Azzurri — Arthur Avenue Forever",
+    vibe: "Italy missed World Cup 2026 — heartbreaking, but Italian-American NYC doesn't need a tournament to come alive. Arthur Avenue in the Bronx is essentially a piece of Italy, and the community has been here for generations. Whenever the Azzurri play next, this is where you watch. And in the meantime, the food, the wine, and the neighborhood are still here.",
     boroughHighlights: {
       Manhattan: "The East Village still has Italian wine bars and social clubs for match days.",
       Brooklyn: "Carroll Gardens and Bensonhurst are Brooklyn's most Italian neighborhoods — authentic match energy.",
@@ -405,8 +434,8 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     ],
   },
   "Nigeria": {
-    headline: "Super Eagles Fly Over Flatbush and the Bronx",
-    vibe: "Nigeria's NYC community is one of the largest African diaspora groups in the city, with major presences in Flatbush, the Bronx, and Harlem. Super Eagles matches are neighborhood events — Afrobeats, jollof rice, and deafening support.",
+    headline: "Super Eagles, NYC Edition — Flatbush Forever",
+    vibe: "Nigeria didn't make World Cup 2026, but NYC's Nigerian community is one of the largest African diaspora groups in the city — major presences in Flatbush, the Bronx, and Harlem. The Super Eagles will be back, and when they are, these neighborhoods will be ready. Until then: Afrobeats, jollof rice, and the warmest welcome in the city are still right here.",
     boroughHighlights: {
       Manhattan: "Harlem has a growing Nigerian and West African presence with community restaurants.",
       Brooklyn: "Flatbush is the heart of Brooklyn's Nigerian community — Fulton Street transforms on match days.",
@@ -495,6 +524,26 @@ export function getGenericGuideText(countryName: string): GuideText {
     },
     insider: "Download the OneFootball app before you arrive — it has a venue-finder feature to locate nearby watch parties for any country. Football Factory at Legends (6 W 33rd St) hosts 30+ supporter clubs and is always a safe bet.",
     chant: `Go ${countryName}! Go ${countryName}!`,
+    phrases: [
+      { say: `Go ${countryName}!`, means: "Show your colors!" },
+      { say: "Cheers!", means: "Universal language 🍺" },
+    ],
+  };
+}
+
+export function getNotIn2026GenericGuideText(countryName: string): GuideText {
+  return {
+    headline: `${countryName} fans, NYC is still your home.`,
+    vibe: `${countryName} didn't qualify for World Cup 2026 — but the NYC scene doesn't disappear just because there's no tournament. The community is here, the spots are here, and we're still mapping them. Know a great ${countryName} spot in NYC? Help us build the guide.`,
+    boroughHighlights: {
+      Manhattan: `Manhattan has dedicated soccer bars that welcome fans of every nation — and the ${countryName} community here gathers for international friendlies and qualifiers.`,
+      Brooklyn: `Brooklyn's borough-by-borough international scene runs deep year-round — ${countryName}'s pocket is here too, we just haven't mapped it yet.`,
+      Queens: `Queens is the most diverse borough on Earth and ${countryName}'s community is here somewhere — help us find it.`,
+      "The Bronx": `The Bronx's international communities run deep beyond just one tournament. If there's a ${countryName} spot here, we want to know.`,
+      "Staten Island": `Staten Island's international scene is small but specific. Know a ${countryName} spot here? Tell us.`,
+    },
+    insider: `When ${countryName} qualifies for the next major tournament, NYC's community will be ready. Until then, follow your team's friendlies and qualifiers — the same neighborhoods light up for those too.`,
+    chant: `${countryName} forever!`,
     phrases: [
       { say: `Go ${countryName}!`, means: "Show your colors!" },
       { say: "Cheers!", means: "Universal language 🍺" },
