@@ -581,6 +581,63 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       { say: "What a goal!", means: "Quel but! / Yâ goal! 🇩🇿" },
     ],
   },
+  "Tunisia": {
+    headline: "Aigles de Carthage — North African NYC",
+    vibe: "Tunisia is back in the World Cup for a third consecutive tournament. NYC's Tunisian community is small but tight, sharing the North African scene with Moroccans and Algerians on Steinway Street in Astoria, with a few standout spots in Brooklyn and Manhattan. The Eagles of Carthage bring couscous, brik, harissa, and the kind of community pride that turns small numbers into huge energy.",
+    boroughHighlights: {
+      Manhattan: "Manhattan has La Goulette in Williamsburg as the most explicitly Tunisian spot, plus Cafe Mogador (East Village) and Nomad which welcome Tunisian fans alongside Moroccan and Algerian regulars.",
+      Brooklyn: "La Goulette in Williamsburg is NYC's only restaurant explicitly identifying as Tunisian — Mediterranean blue-and-white theme, complex couscous and shawarma dishes, no alcohol.",
+      Queens: "Steinway Street in Astoria is the shared North African strip — Tunisian, Moroccan, and Algerian communities gather here for big matches.",
+      "The Bronx": "The Bronx's North African community is concentrated in Astoria.",
+      "Staten Island": "Staten Island has small North African presence at neighborhood spots.",
+    },
+    insider: "La Goulette (Williamsburg) is the only spot in NYC explicitly calling itself Tunisian — named for the port of entry to Tunis. For match days though, Steinway Street in Astoria is where the broader North African community gathers. Mint tea, brik, and Tunisian patriotism on full display.",
+    chant: "Tounsi! Tounsi! Vive la Tunisie!",
+    phrases: [
+      { say: "How do I get to Steinway Street?", means: "Comment aller à Steinway Street?" },
+      { say: "A mint tea, please!", means: "(Most North African spots are alcohol-free) — Un thé à la menthe, s'il vous plaît" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang" },
+      { say: "What a goal!", means: "Quel but! 🇹🇳" },
+    ],
+  },
+  "South Africa": {
+    headline: "Bafana Bafana — First World Cup Since 2002",
+    vibe: "South Africa's first World Cup since hosting in 2010 — and their first qualifying campaign success since 2002. NYC's South African community is small but well-organized, anchored by a few standout restaurants and wine bars where the Bafana Bafana faithful gather. Expect biltong, braai talk, South African wine, and a community that's been waiting two decades for this moment.",
+    boroughHighlights: {
+      Manhattan: "Kaia Wine Bar on the Upper East Side is the South African community's Manhattan anchor — wine bar, restaurant, and de facto gathering place. Braai in Hell's Kitchen is the other major spot.",
+      Brooklyn: "Madiba in Fort Greene is the Brooklyn anchor — a 25+ year institution named after Nelson Mandela. Shebeen-style atmosphere, biltong, oxtail, malva pudding.",
+      Queens: "Queens has a smaller South African presence — Brooklyn and Manhattan are the centers.",
+      "The Bronx": "The Bronx's African community has small South African pockets.",
+      "Staten Island": "Staten Island's South African community is small but present.",
+    },
+    insider: "Madiba in Fort Greene (195 Dekalb Ave) has been NYC's South African home since 1999 — go early for big matches. The South African All Stars and other live bands rotate through. Order the Pap en Boerewors (cornmeal porridge with sausage) and a glass of Bosman Adama or another South African red.",
+    chant: "Bafana Bafana! Shosholoza, kulezo ntaba!",
+    phrases: [
+      { say: "How do I get to Fort Greene?", means: "Brooklyn-bound C train to Lafayette Ave" },
+      { say: "Drinks all around!", means: "Universal — try South African wine, the list at Kaia is serious" },
+      { say: "It's hot as balls today!", means: "NYC summer slang" },
+      { say: "What a goal!", means: "Yebo! 🇿🇦" },
+    ],
+  },
+  "Paraguay": {
+    headline: "Albirroja Returns — Sunnyside's Embassy Awaits",
+    vibe: "Paraguay's first World Cup since 2010 — and NYC's Paraguayan community has been waiting. The diaspora is small (around 4,200 people, just 0.05% of NYC) but tight, anchored by I Love Paraguay in Sunnyside, Queens — informally called the 'Paraguayan embassy' by the community. La Albirroja matches here will fill the room with chipa, sopa paraguaya, terere, and Guaraní-language singing.",
+    boroughHighlights: {
+      Manhattan: "Manhattan has limited Paraguayan-specific spots — most of the community gathers in Queens.",
+      Brooklyn: "Brooklyn has a small Paraguayan presence — Queens is the center.",
+      Queens: "Sunnyside and Maspeth are the Paraguayan heart of NYC. I Love Paraguay (Sunnyside) and El Diez (Maspeth) are the two anchors.",
+      "The Bronx": "The Bronx has small South American pockets including Paraguayan families.",
+      "Staten Island": "Staten Island's South American community includes Paraguayan fans.",
+    },
+    insider: "I Love Paraguay (Sunnyside) is the heart — the harp player, the Guaraní welcome sign, the carrulim (sugarcane liquor with herbs) for August 1st. Even the President of Paraguay has visited. For Albirroja matches, get there early. They have their own beer brewed specifically for Paraguayan flavor.",
+    chant: "¡Vamos Albirroja! ¡Paraguay, Paraguay!",
+    phrases: [
+      { say: "How do I get to Sunnyside?", means: "7 train to 46 St-Bliss St" },
+      { say: "Drinks all around!", means: "¡Una ronda para todos!" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang" },
+      { say: "What a goal!", means: "¡Qué golazo! 🇵🇾" },
+    ],
+  },
 };
 
 export function getGenericGuideText(countryName: string): GuideText {
