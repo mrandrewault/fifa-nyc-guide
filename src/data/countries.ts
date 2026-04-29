@@ -638,6 +638,63 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       { say: "What a goal!", means: "¡Qué golazo! 🇵🇾" },
     ],
   },
+  "Austria": {
+    headline: "Hopp Österreich — Vienna in Yorkville",
+    vibe: "Austria's first World Cup since 1998. NYC's Austrian community is small but distinguished, anchored by some of the city's most refined Viennese restaurants — Wallsé in the West Village (Chef Kurt Gutenbrunner's institution since 2000), Cafe Sabarsky inside the Neue Galerie museum on Fifth Avenue, and Cafe Katja on the Lower East Side. The energy is less beer-hall, more white-tablecloth — but it's authentic, it's Viennese, and it's quietly waiting for this moment.",
+    boroughHighlights: {
+      Manhattan: "Manhattan IS the Austria page. Cafe Sabarsky (UES, inside Neue Galerie), Wallsé (West Village), Cafe Katja (LES). Each is a serious Viennese institution.",
+      Brooklyn: "Brooklyn has Werkstatt in Ditmas Park — Austrian chef Thomas Ferlesch's Vienna-meets-Brooklyn restaurant. The Brooklyn anchor.",
+      Queens: "Queens has the broader German-Austrian beer hall scene — Bohemian Hall, Zum Stammtisch — that welcomes Austrian fans.",
+      "The Bronx": "The Bronx has limited Austrian-specific spots; Manhattan and Brooklyn are the centers.",
+      "Staten Island": "Staten Island has small Central European communities at family-run spots.",
+    },
+    insider: "Cafe Sabarsky inside the Neue Galerie (1048 5th Ave) is the most beautifully Viennese space in NYC — Wiener Schnitzel, Sachertorte, the cabaret series in the evenings. Worth the museum admission alone. For a more casual match-day spot, Cafe Katja on the LES does excellent Wiener schnitzel and Austrian beer.",
+    chant: "Hopp Hopp Hopp! Österreich olé!",
+    phrases: [
+      { say: "How do I get to the Upper East Side?", means: "Wie komme ich zur Upper East Side?" },
+      { say: "Drinks all around!", means: "Eine Runde für alle!" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang — locals will love it" },
+      { say: "What a goal!", means: "Was für ein Tor! 🇦🇹" },
+    ],
+  },
+  "Czechia": {
+    headline: "Češi! — Astoria's Bohemian Heart",
+    vibe: "Czechia (the Czech Republic) is back in the World Cup for the first time since 2006. NYC's Czech community is concentrated in Astoria, Queens — and the cultural anchor is genuinely historic: Bohemian Hall & Beer Garden has been operating since 1910, surviving Prohibition and a century of NYC change. The Upper East Side was once 'Little Bohemia,' centered on the Bohemian National Hall on East 73rd Street, where Bohemian Spirit (Michelin Bib Gourmand) carries on the tradition. Czech beer, schnitzel, dumplings, and one of NYC's oldest beer gardens.",
+    boroughHighlights: {
+      Manhattan: "Bohemian National Hall on East 73rd Street is the historic Czech cultural center; Bohemian Spirit (the ground-floor restaurant) is Michelin Bib Gourmand and the Manhattan anchor.",
+      Brooklyn: "Brooklyn has scattered Eastern European spots — Czech community is concentrated in Queens.",
+      Queens: "Queens IS Czech NYC. Bohemian Hall in Astoria has been the heart since 1910. Plus Koliba and the broader Astoria Eastern European scene.",
+      "The Bronx": "The Bronx's Eastern European pockets include some Czech families.",
+      "Staten Island": "Staten Island has small Central European presence.",
+    },
+    insider: "Bohemian Hall & Beer Garden (29-19 24th Ave, Astoria) is one of the largest outdoor beer gardens in the Northeast and has been operating since 1910 — they survived Prohibition. For Czech matches, this is the spiritual home. Show up early, order Pilsner Urquell on draft, and stay for the schnitzel.",
+    chant: "Češi! Češi! Kdo neskáče není Čech!",
+    phrases: [
+      { say: "How do I get to Astoria?", means: "Jak se dostanu do Astorie? (N/W train)" },
+      { say: "Drinks all around!", means: "Pivo pro všechny! (Beer for everyone!)" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang" },
+      { say: "What a goal!", means: "Jaký gól! 🇨🇿" },
+    ],
+  },
+  "Jordan": {
+    headline: "Al-Nashama — Atlantic Avenue's Levantine Heart",
+    vibe: "Jordan's first-ever World Cup. NYC's Jordanian community is small but woven into the broader Levantine scene — Atlantic Avenue in Brooklyn (around Sahadi's) has been the heart of Arab NYC for generations, and Bay Ridge is the modern Arab-American center. Jordanian fans share spaces with Lebanese, Palestinian, and Syrian communities — the Levantine flavors are connected, the hospitality is shared, and this is a moment for all of them.",
+    boroughHighlights: {
+      Manhattan: "Manhattan has Au Za'atar (East Village) and Huda (Lower East Side) — Levantine spots that welcome Jordanian fans alongside Lebanese, Syrian, and Palestinian regulars.",
+      Brooklyn: "Brooklyn IS the Levantine heart of NYC. Atlantic Avenue (around Sahadi's) is the historic Arab strip; Bay Ridge is the modern Arab-American center. Jordanian fans gather in both.",
+      Queens: "Queens has scattered Middle Eastern spots — Brooklyn is the Levantine center.",
+      "The Bronx": "The Bronx's Middle Eastern community is small but present.",
+      "Staten Island": "Staten Island has Middle Eastern restaurants serving the broader community.",
+    },
+    insider: "Bay Ridge (5th Ave between roughly 65th and 86th Streets) is NYC's modern Arab-American neighborhood — Ayat (Palestinian, but the broader Levantine community gathers here), shisha cafes, and Levantine grocery stores. For a Jordan match, this is where the community will be. Atlantic Avenue is the historic Brooklyn alternative.",
+    chant: "Al-Nashama! Al-Nashama! Hayya Ya Urdun!",
+    phrases: [
+      { say: "How do I get to Bay Ridge?", means: "Kayfa adhhab ila Bay Ridge? (R train south to Bay Ridge Ave)" },
+      { say: "A mint tea, please!", means: "Shai bi na'na, lo samaht!" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang" },
+      { say: "What a goal!", means: "Yâ goal! 🇯🇴" },
+    ],
+  },
 };
 
 export function getGenericGuideText(countryName: string): GuideText {
