@@ -3,7 +3,15 @@
 import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import type { Country } from '@/types';
-import { COUNTRIES, GUIDE_TEXT, METLIFE_TEAMS, getGenericGuideText } from '@/data/countries';
+import {
+  COUNTRIES,
+  GUIDE_TEXT,
+  METLIFE_TEAMS,
+  NOT_IN_2026,
+  NOT_IN_2026_NEIGHBORHOODS,
+  getGenericGuideText,
+  getNotIn2026GenericGuideText,
+} from '@/data/countries';
 import { VENUES } from '@/data/venues';
 import { safeAccent, textOn, sortVenues } from '@/lib/utils';
 import VenueList from '@/components/shared/VenueList';
@@ -28,38 +36,25 @@ const BOROUGH_EMOJI: Record<string, string> = {
 const FLOATING_FLAGS = ['🇧🇷', '🇲🇽', '🇩🇪', '🇫🇷', '🇦🇷', '🇯🇵'];
 type ViewMode = 'list' | 'map';
 
-// Split countries into MetLife teams and the rest
+// Split countries into three groups for the dropdown:
+//   1. MetLife teams (playing AT MetLife specifically)
+//   2. All other 2026 qualifiers
+//   3. NYC communities not playing in 2026 (Italy, Nigeria, etc.)
 const METLIFE_COUNTRIES = COUNTRIES.filter(c => METLIFE_TEAMS.includes(c.name));
-const OTHER_COUNTRIES = COUNTRIES.filter(c => !METLIFE_TEAMS.includes(c.name));
+const QUALIFIED_NON_METLIFE = COUNTRIES.filter(
+  c => !METLIFE_TEAMS.includes(c.name) && !NOT_IN_2026.includes(c.name)
+);
+const NOT_IN_2026_COUNTRIES = COUNTRIES.filter(c => NOT_IN_2026.includes(c.name));
 
 /**
  * Returns the best borough to display first when a user picks a country.
- *
- * Counts ONLY country-specific venues (≤2 country associations). This
- * deliberately excludes catch-all venues like Football Factory at Legends
- * and the FIFA Fan Villages, which are tagged for 20+ countries and would
- * otherwise inflate Manhattan's count for every country.
- *
- * Mirrors the specificity-tier philosophy from sortVenues in src/lib/utils.ts:
- * "where are this country's actual local spots concentrated?" — not
- * "which borough has the most generic FIFA stuff."
- *
- * Ties are broken by BOROUGHS order (Manhattan first), so familiar
- * boroughs win when country-specific venue counts are equal.
- *
- * If a country has zero country-specific venues anywhere, falls back to
- * Manhattan as a familiar default — the empty-state copy will gracefully
- * point users to the submission form.
- *
- * Why this exists: a Bosnian fan picking "Bosnia and Herzegovina" should
- * land on Queens (3 Bosnian venues), not Manhattan (catch-alls only).
- * An Italian fan should land on the Bronx (Arthur Avenue), not Manhattan
- * (catch-alls only). Defaulting to Manhattan made every smaller-diaspora
- * country feel empty even when they had real spots elsewhere.
+ * Counts ONLY country-specific venues (≤2 country associations) so catch-all
+ * venues like Football Factory and FIFA Fan Villages don't skew the default
+ * toward Manhattan for every country. Mirrors the specificity tier from
+ * sortVenues() in src/lib/utils.ts.
  */
 function getDefaultBorough(countryName: string): string {
-  // Only count country-specific venues — exclude catch-alls (3+ associations).
-  const SPECIFICITY_THRESHOLD = 2; // matches the "specialist" tier in sortVenues
+  const SPECIFICITY_THRESHOLD = 2;
   const venuesForCountry = VENUES.filter(
     v =>
       v.isActive &&
@@ -67,16 +62,12 @@ function getDefaultBorough(countryName: string): string {
       v.countryAssociations.length <= SPECIFICITY_THRESHOLD
   );
 
-  // No country-specific venues anywhere? Fall back to Manhattan (familiar default).
   if (venuesForCountry.length === 0) return 'Manhattan';
 
-  // Count specialist venues per borough, preserving BOROUGHS order for tie-breaking.
   const counts = BOROUGHS.map(b => ({
     borough: b as string,
     count: venuesForCountry.filter(v => v.borough === b).length,
   }));
-
-  // Stable sort by count descending; ties keep the original BOROUGHS order.
   counts.sort((a, b) => b.count - a.count);
   return counts[0].borough;
 }
@@ -90,14 +81,28 @@ export default function GuideTab() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const accent = safeAccent(selected?.colors ?? []);
-  const guideText = selected ? (GUIDE_TEXT[selected.name] ?? getGenericGuideText(selected.name)) : null;
+  const isNotIn2026 = selected ? NOT_IN_2026.includes(selected.name) : false;
+
+  // Pick the right guide-text source based on whether the country is qualified.
+  // Order of preference:
+  //   1. Rich GUIDE_TEXT entry (Italy, Nigeria, Brazil, etc. — works for both groups)
+  //   2. getNotIn2026GenericGuideText() — for non-qualifiers without rich content
+  //   3. getGenericGuideText() — for qualifiers without rich content (Panama, etc.)
+  const guideText = selected
+    ? (GUIDE_TEXT[selected.name] ??
+        (isNotIn2026
+          ? getNotIn2026GenericGuideText(selected.name)
+          : getGenericGuideText(selected.name)))
+    : null;
+
   const allVenues = selected ? sortVenues(VENUES.filter(v => v.isActive && v.countryAssociations.includes(selected.name))) : [];
   const boroughVenues = allVenues.filter(v => v.borough === activeBorough);
 
-  // Filtered results for search
+  // Filtered results for search across all three groups
   const searchLower = search.toLowerCase();
   const filteredMetLife = METLIFE_COUNTRIES.filter(c => c.name.toLowerCase().includes(searchLower));
-  const filteredOther = OTHER_COUNTRIES.filter(c => c.name.toLowerCase().includes(searchLower));
+  const filteredQualified = QUALIFIED_NON_METLIFE.filter(c => c.name.toLowerCase().includes(searchLower));
+  const filteredNotIn2026 = NOT_IN_2026_COUNTRIES.filter(c => c.name.toLowerCase().includes(searchLower));
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -112,11 +117,14 @@ export default function GuideTab() {
 
   function pickCountry(c: Country) {
     setSelected(c); setSearch(c.name); setShowDropdown(false);
-    // Default to the borough with the most country-specific venues for this country,
-    // not always Manhattan. Catch-all venues (FIFA Fan Villages, Football Factory)
-    // are excluded so they don't skew the default toward Manhattan for every country.
     setActiveBorough(getDefaultBorough(c.name)); setViewMode('list');
   }
+
+  // Build the "not in 2026" banner copy for the selected country.
+  // Personalized neighborhood namedrops feel warmer than generic phrasing.
+  const notIn2026BannerText = selected && isNotIn2026
+    ? `${selected.name} didn't qualify for World Cup 2026 — but ${NOT_IN_2026_NEIGHBORHOODS[selected.name] ?? 'the NYC scene'} is here whenever you want it.`
+    : '';
 
   return (
     <div className="px-4 pb-6">
@@ -153,7 +161,7 @@ export default function GuideTab() {
 
         {showDropdown && (
           <div
-            className="absolute left-0 right-0 z-50 mt-1 max-h-72 overflow-y-auto rounded border border-zinc-800 shadow-2xl"
+            className="absolute left-0 right-0 z-50 mt-1 max-h-96 overflow-y-auto rounded border border-zinc-800 shadow-2xl"
             style={{ background: '#161616', top: '100%' }}
           >
             {/* MetLife section */}
@@ -179,16 +187,16 @@ export default function GuideTab() {
               </>
             )}
 
-            {/* All nations section */}
-            {filteredOther.length > 0 && (
+            {/* Other 2026 qualifiers section */}
+            {filteredQualified.length > 0 && (
               <>
                 <div
                   className="px-4 py-2 label text-[9px] border-b border-zinc-900"
-                  style={{ color: '#666', letterSpacing: '0.2em', background: '#111' }}
+                  style={{ color: '#888', letterSpacing: '0.2em', background: '#111' }}
                 >
-                  🌍 All nations
+                  🌍 Playing in World Cup 2026
                 </div>
-                {filteredOther.map(c => (
+                {filteredQualified.map(c => (
                   <button
                     key={c.name}
                     onClick={() => pickCountry(c)}
@@ -201,7 +209,30 @@ export default function GuideTab() {
               </>
             )}
 
-            {filteredMetLife.length === 0 && filteredOther.length === 0 && (
+            {/* Not in 2026 section — communities still worth visiting */}
+            {filteredNotIn2026.length > 0 && (
+              <>
+                <div
+                  className="px-4 py-2 label text-[9px] border-b border-zinc-900"
+                  style={{ color: '#666', letterSpacing: '0.2em', background: '#0A0A0A' }}
+                >
+                  🌐 NYC communities — not in 2026
+                </div>
+                {filteredNotIn2026.map(c => (
+                  <button
+                    key={c.name}
+                    onClick={() => pickCountry(c)}
+                    className="flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-zinc-800 border-b border-zinc-900"
+                  >
+                    <span className="text-xl opacity-70">{c.flag}</span>
+                    <span className="label text-sm text-zinc-400">{c.name}</span>
+                    <span className="ml-auto label text-[9px] text-zinc-700">not in 2026</span>
+                  </button>
+                ))}
+              </>
+            )}
+
+            {filteredMetLife.length === 0 && filteredQualified.length === 0 && filteredNotIn2026.length === 0 && (
               <div className="px-4 py-3 text-sm text-zinc-600">No country found</div>
             )}
           </div>
@@ -211,6 +242,16 @@ export default function GuideTab() {
       {/* Guide content */}
       {selected && guideText ? (
         <div>
+          {/* Not-in-2026 banner — appears at the very top of non-qualifier pages */}
+          {isNotIn2026 && (
+            <div className="mb-4 rounded p-3 flex items-start gap-3" style={{ background: '#1A1A1A', border: '1px solid #2A2A2A' }}>
+              <span className="text-base flex-shrink-0 leading-none mt-0.5">🌐</span>
+              <p className="text-[12px] text-zinc-400 leading-relaxed italic">
+                {notIn2026BannerText}
+              </p>
+            </div>
+          )}
+
           {/* Hero */}
           <div className="rounded p-5 mb-5" style={{ background: `linear-gradient(135deg, ${accent}20, ${accent}08)`, border: `1px solid ${accent}44` }}>
             <div className="flex items-start gap-4 flex-wrap">
@@ -247,7 +288,7 @@ export default function GuideTab() {
             </div>
           )}
 
-          {/* MetLife badge if applicable */}
+          {/* MetLife badge if applicable — only shows for qualifiers */}
           {METLIFE_TEAMS.includes(selected.name) && (
             <div className="mb-4 flex items-center gap-2 rounded px-3 py-2" style={{ background: '#E8C84A11', border: '1px solid #E8C84A33' }}>
               <span>🏟️</span>
