@@ -35,28 +35,42 @@ const OTHER_COUNTRIES = COUNTRIES.filter(c => !METLIFE_TEAMS.includes(c.name));
 /**
  * Returns the best borough to display first when a user picks a country.
  *
- * Picks whichever borough has the most active venues associated with that
- * country. Ties are broken by BOROUGHS order (Manhattan first), so
- * familiar boroughs win when venue counts are equal.
+ * Counts ONLY country-specific venues (≤2 country associations). This
+ * deliberately excludes catch-all venues like Football Factory at Legends
+ * and the FIFA Fan Villages, which are tagged for 20+ countries and would
+ * otherwise inflate Manhattan's count for every country.
  *
- * If a country has zero venues anywhere, falls back to Manhattan as a
- * familiar default — the empty-state copy on that page will gracefully
+ * Mirrors the specificity-tier philosophy from sortVenues in src/lib/utils.ts:
+ * "where are this country's actual local spots concentrated?" — not
+ * "which borough has the most generic FIFA stuff."
+ *
+ * Ties are broken by BOROUGHS order (Manhattan first), so familiar
+ * boroughs win when country-specific venue counts are equal.
+ *
+ * If a country has zero country-specific venues anywhere, falls back to
+ * Manhattan as a familiar default — the empty-state copy will gracefully
  * point users to the submission form.
  *
  * Why this exists: a Bosnian fan picking "Bosnia and Herzegovina" should
- * land on Queens (where the 3 Bosnian venues are), not Manhattan (where
- * there are zero). Defaulting to Manhattan made every smaller-diaspora
+ * land on Queens (3 Bosnian venues), not Manhattan (catch-alls only).
+ * An Italian fan should land on the Bronx (Arthur Avenue), not Manhattan
+ * (catch-alls only). Defaulting to Manhattan made every smaller-diaspora
  * country feel empty even when they had real spots elsewhere.
  */
 function getDefaultBorough(countryName: string): string {
+  // Only count country-specific venues — exclude catch-alls (3+ associations).
+  const SPECIFICITY_THRESHOLD = 2; // matches the "specialist" tier in sortVenues
   const venuesForCountry = VENUES.filter(
-    v => v.isActive && v.countryAssociations.includes(countryName)
+    v =>
+      v.isActive &&
+      v.countryAssociations.includes(countryName) &&
+      v.countryAssociations.length <= SPECIFICITY_THRESHOLD
   );
 
-  // No venues at all? Fall back to Manhattan (most familiar default).
+  // No country-specific venues anywhere? Fall back to Manhattan (familiar default).
   if (venuesForCountry.length === 0) return 'Manhattan';
 
-  // Count venues per borough, preserving BOROUGHS order for tie-breaking.
+  // Count specialist venues per borough, preserving BOROUGHS order for tie-breaking.
   const counts = BOROUGHS.map(b => ({
     borough: b as string,
     count: venuesForCountry.filter(v => v.borough === b).length,
@@ -98,8 +112,9 @@ export default function GuideTab() {
 
   function pickCountry(c: Country) {
     setSelected(c); setSearch(c.name); setShowDropdown(false);
-    // Default to the borough with the most venues for this country, not always Manhattan.
-    // A Bosnian fan should land on Queens (3 venues), not Manhattan (0 venues).
+    // Default to the borough with the most country-specific venues for this country,
+    // not always Manhattan. Catch-all venues (FIFA Fan Villages, Football Factory)
+    // are excluded so they don't skew the default toward Manhattan for every country.
     setActiveBorough(getDefaultBorough(c.name)); setViewMode('list');
   }
 
