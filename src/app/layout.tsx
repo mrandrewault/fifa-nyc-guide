@@ -1,7 +1,13 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
+
+// Google Analytics 4 Measurement ID for Golazo NYC.
+// Hardcoded here because it's a public client-side identifier (visible in browser anyway)
+// and putting it in env vars would just add deployment complexity for no security benefit.
+const GA_MEASUREMENT_ID = 'G-VB9RCK0P8N';
 
 export const metadata: Metadata = {
   title: 'Golazo NYC — The World\'s Guide to the World Cup in NYC',
@@ -101,6 +107,23 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+
+        {/* Google Analytics 4 — async loaded via Next.js Script for proper performance */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+
         {/* Vercel Web Analytics — page views, top countries, top referrers, UTM campaigns */}
         <Analytics />
         {/* Vercel Speed Insights — Core Web Vitals, page load performance per route */}
