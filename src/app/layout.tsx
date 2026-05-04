@@ -104,9 +104,127 @@ export default function RootLayout({
             })
           }}
         />
+        {/* Footer hover state */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .golazo-footer-ig {
+                transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+              }
+              .golazo-footer-ig:hover {
+                background: rgba(255,255,255,0.08);
+                border-color: rgba(255,255,255,0.4);
+                transform: translateY(-1px);
+              }
+            `,
+          }}
+        />
       </head>
       <body>
         {children}
+
+        {/* Site-wide footer */}
+        <footer
+          style={{
+            background: '#0A0A0A',
+            color: '#FFFFFF',
+            padding: '48px 24px 36px',
+            fontFamily: '"Barlow Condensed", system-ui, sans-serif',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+          }}
+        >
+          <div
+            style={{
+              maxWidth: '1200px',
+              margin: '0 auto',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '24px',
+              textAlign: 'center',
+            }}
+          >
+            {/* Wordmark */}
+            <div>
+              <div
+                style={{
+                  fontSize: '24px',
+                  fontWeight: 800,
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                  marginBottom: '6px',
+                  lineHeight: 1,
+                }}
+              >
+                Golazo NYC
+              </div>
+              <div
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  opacity: 0.7,
+                  letterSpacing: '0.02em',
+                  lineHeight: 1.4,
+                }}
+              >
+                The World&apos;s Guide to the World Cup in NYC
+              </div>
+            </div>
+
+            {/* Instagram button */}
+            <a
+              href="https://instagram.com/golazo_nyc"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Golazo NYC on Instagram"
+              className="golazo-footer-ig"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '10px 18px',
+                border: '1px solid rgba(255,255,255,0.2)',
+                borderRadius: '999px',
+                color: '#FFFFFF',
+                textDecoration: 'none',
+                fontSize: '15px',
+                fontWeight: 500,
+                letterSpacing: '0.03em',
+              }}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              <span>@golazo_nyc</span>
+            </a>
+
+            {/* Copyright line */}
+            <div
+              style={{
+                fontSize: '11px',
+                fontWeight: 400,
+                opacity: 0.5,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                marginTop: '4px',
+              }}
+            >
+              © 2026 Golazo NYC · Made in New York
+            </div>
+          </div>
+        </footer>
 
         {/* Google Analytics 4 — async loaded via Next.js Script for proper performance */}
         <Script
