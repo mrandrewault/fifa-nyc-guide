@@ -5,12 +5,13 @@ export const METLIFE_TEAMS = [
   'Brazil', 'France', 'Senegal', 'Norway', 'Germany', 'Ecuador', 'Panama', 'England',
 ];
 // ─── Countries with NYC communities but NOT playing in World Cup 2026 ────────
-// Italy missed out on its third straight World Cup; Cameroon, Denmark, Poland,
-// Serbia all qualified for 2022 but not 2026. Their NYC scenes still exist
-// and are still worth visiting — the site honors them with their own dropdown
-// section and a clear banner on each country page.
+// Italy missed out on its third straight World Cup; Ireland's last World Cup
+// was 2002; Cameroon, Denmark, Poland, Serbia all qualified for 2022 but not
+// 2026. Their NYC scenes still exist and are still worth visiting — the site
+// honors them with their own dropdown section and a clear banner on each
+// country page.
 export const NOT_IN_2026 = [
-  'Cameroon', 'Chile', 'Denmark', 'Greece', 'Honduras', 'Italy',
+  'Cameroon', 'Chile', 'Denmark', 'Greece', 'Honduras', 'Ireland', 'Italy',
   'Nigeria', 'Peru', 'Poland', 'Serbia', 'Ukraine', 'Venezuela',
 ];
 
@@ -20,6 +21,7 @@ export const NOT_IN_2026 = [
 // without a strong NYC anchor.
 export const NOT_IN_2026_NEIGHBORHOODS: Record<string, string> = {
   'Italy': 'Arthur Avenue',
+  'Ireland': 'The Long Hall and 11th Street Bar',
   'Nigeria': 'Flatbush',
   'Cameroon': 'the NYC West African scene',
   'Chile': 'the South American community',
@@ -63,6 +65,7 @@ export const COUNTRIES: Country[] = [
   { name: "Honduras",     flag: "🇭🇳", colors: ["#0073CF","#0073CF","#FFFFFF"] },
   { name: "Iran",         flag: "🇮🇷", colors: ["#239F40","#DA0000","#FFFFFF"] },
   { name: "Iraq",         flag: "🇮🇶", colors: ["#CE1126","#007A3D","#FFFFFF"] },
+  { name: "Ireland",      flag: "🇮🇪", colors: ["#169B62","#FFFFFF","#FF883E"] },
   { name: "Italy",        flag: "🇮🇹", colors: ["#009246","#CE2B37","#FFFFFF"] },
   { name: "Ivory Coast",  flag: "🇨🇮", colors: ["#F77F00","#009A44","#FFFFFF"] },
   { name: "Jamaica",      flag: "🇯🇲", colors: ["#009B3A","#FED100","#1A1A1A"] },
@@ -256,6 +259,25 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       { say: "Let's grab a slice", means: "NYC pizza lingo — you'll blend in instantly" },
       { say: "It's hot as balls today!", means: "Pure NYC summer slang" },
       { say: "What a goal!", means: "Che gol! 🇮🇹" },
+    ],
+  },
+  "Ireland": {
+    headline: "Boys in Green — NYC Is Your Local",
+    vibe: "Ireland didn't make World Cup 2026 — it's been since 2002 since the Boys in Green were on the biggest stage. Heartbreaking, but Irish-American NYC doesn't need a qualified team to come alive. The Irish community in New York is one of the deepest and most established in the city, and the pubs that serve them are some of the most authentic Irish public houses outside Dublin. During the World Cup, the Boys in Green faithful will still pack the pubs to watch — and so will the Liverpool, Celtic, and Premier League supporters' clubs that call these places home year-round. Guinness, traditional seisiúns, GAA on the screens, and the warmest welcome in the city.",
+    boroughHighlights: {
+      Manhattan: "Manhattan IS the Irish page. The Long Hall (Midtown) is the 'Dublin transplanted' pick. 11th Street Bar (East Village) is the Liverpool supporters' home and has one of NYC's longest-running traditional Irish seisiúns every Sunday. The Dead Rabbit (Financial District) is the world-rated cocktail destination from Belfast founders.",
+      Brooklyn: "Brooklyn's Irish pub scene runs deep — McMahon's Public House (Park Slope, one block from Barclays) is the borough's serious Irish sports anchor. Plus Iona Bar in Williamsburg for the Scottish-Irish crossover.",
+      Queens: "Queens has the Irish Rover in Astoria, the Shillelagh Tavern (LFC partner) and a deep network of neighborhood pubs in Sunnyside and Woodside that have been serving the Irish community for generations.",
+      "The Bronx": "The Bronx has Keane's, Connaughton's, and a Woodlawn Irish community with deep neighborhood roots. This is old Irish-American NYC.",
+      "Staten Island": "Staten Island has the largest Irish-American community per capita in the boroughs — match days are deeply local and quietly serious.",
+    },
+    insider: "The Long Hall Pub & Grocery (58 E 34th St) is the most Dublin-authentic pub in Manhattan — they stock Tayto crisps, Barry's Tea, and Club Orange in the back like an Irish corner shop. For match days with real soccer atmosphere, 11th Street Bar (East Village) is the move — Liverpool supporters pack it for early kickoffs but they show all major matches and the Irish musical seisiún on Sunday nights is one of the longest-running in the city. For something more refined, end your night at The Dead Rabbit downtown — named #1 bar in the world in 2016.",
+    chant: "Come on you Boys in Green! Olé Olé Olé!",
+    phrases: [
+      { say: "How do I get to Midtown?", means: "Conas a rachaidh mé go Midtown? (Shay 'get' not 'reach' — NYC way)" },
+      { say: "A pint, please!", means: "Universal Irish-pub lingua franca — they'll know" },
+      { say: "It's hot as balls today!", means: "Pure NYC summer slang — Irish bartenders will love hearing it" },
+      { say: "Sláinte!", means: "Universal Irish toast — pronounced 'slahn-cha' (means 'health')" },
     ],
   },
   "Spain": {
@@ -472,7 +494,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     vibe: "Australia's NYC community is scattered but enthusiastic — mostly professionals in finance and tech, with a strong expat social scene. Socceroos fans are fun, relaxed, and know how to have a good time. Old Mate's Place in the East Village is the community anchor.",
     boroughHighlights: {
       Manhattan: "The East Village has Old Mate's Place — NYC's top Australian bar and the Socceroos match-day home.",
-      Brooklyn: "Sheep Station in Park Slope is Brooklyn's Australian community hub.",
+      Brooklyn: "Brooklyn's Australian expat scene is dispersed — international sports bars like Banter and Berry Park welcome Socceroos fans.",
       Queens: "Astoria's international bar scene welcomes Australian fans.",
       "The Bronx": "European and international pubs in the Bronx carry Australia matches.",
       "Staten Island": "Staten Island's international community includes Australian expats.",
@@ -488,9 +510,9 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
   },
   "Scotland": {
     headline: "Tartan Army Lands in NYC",
-    vibe: "Scotland is in the World Cup for the first time since 1998 and the Tartan Army is mobilizing. NYC's Scottish community is smaller than England's but fiercely organized — concentrated around Caledonia Bar on the Upper East Side and the NYC Celtic supporters network. Expect kilts, whisky, and singing that goes until last call.",
+    vibe: "Scotland is in the World Cup for the first time since 1998 and the Tartan Army is mobilizing. NYC's Scottish community is smaller than England's but fiercely organized — concentrated around Caledonia Bar on the Upper East Side, its UWS sister, and the broader Scottish-Irish pub network. Expect kilts, whisky, and singing that goes until last call.",
     boroughHighlights: {
-      Manhattan: "Manhattan is the heart of NYC's Scottish scene — Caledonia on the UES is the community anchor and The Parlour on the UWS is home to NYC's Celtic supporters club.",
+      Manhattan: "Manhattan is the heart of NYC's Scottish scene — Caledonia Bar on the Upper East Side is the original community anchor (since 2011), with its sister Caledonia UWS at 424 Amsterdam serving the West Side.",
       Brooklyn: "Iona Bar in Williamsburg is the Brooklyn anchor — Scottish-Irish, big screens, beer garden, perfect for European football.",
       Queens: "Queens has Scottish-Irish pubs scattered through Astoria and Sunnyside that show European football.",
       "The Bronx": "The Bronx's Irish-Scottish pub culture overlaps — community pubs welcome Tartan Army fans.",
@@ -602,18 +624,18 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
   },
   "South Africa": {
     headline: "Bafana Bafana — First World Cup Since 2002",
-    vibe: "South Africa's first World Cup since hosting in 2010 — and their first qualifying campaign success since 2002. NYC's South African community is small but well-organized, anchored by a few standout restaurants and wine bars where the Bafana Bafana faithful gather. Expect biltong, braai talk, South African wine, and a community that's been waiting two decades for this moment.",
+    vibe: "South Africa's first World Cup since hosting in 2010 — and their first qualifying campaign success since 2002. NYC's South African community is small but well-organized, anchored by Kaia (the South African farmhouse restaurant on the Upper East Side, recently relocated to a bigger fire-based-kitchen home at 1446 1st Ave). Expect biltong, braai talk, South African wine, and a community that's been waiting two decades for this moment.",
     boroughHighlights: {
-      Manhattan: "Kaia Wine Bar on the Upper East Side is the South African community's Manhattan anchor — wine bar, restaurant, and de facto gathering place. Braai in Hell's Kitchen is the other major spot.",
-      Brooklyn: "Madiba in Fort Greene is the Brooklyn anchor — a 25+ year institution named after Nelson Mandela. Shebeen-style atmosphere, biltong, oxtail, malva pudding.",
-      Queens: "Queens has a smaller South African presence — Brooklyn and Manhattan are the centers.",
+      Manhattan: "Kaia (1446 1st Ave, between 75th and 76th) is the South African community's Manhattan anchor — South African farmhouse restaurant with 50+ South African wines, bobotie, lamb burger, peri peri wings. This is where NYC's South African community gathers for matches.",
+      Brooklyn: "Brooklyn's South African scene is currently sparse — Manhattan's Kaia is the city's primary anchor.",
+      Queens: "Queens has a smaller South African presence — Manhattan is the center.",
       "The Bronx": "The Bronx's African community has small South African pockets.",
       "Staten Island": "Staten Island's South African community is small but present.",
     },
-    insider: "Madiba in Fort Greene (195 Dekalb Ave) has been NYC's South African home since 1999 — go early for big matches. The South African All Stars and other live bands rotate through. Order the Pap en Boerewors (cornmeal porridge with sausage) and a glass of Bosman Adama or another South African red.",
+    insider: "Kaia (1446 1st Ave, Upper East Side) — Suzaan Bristol's South African farmhouse restaurant, recently relocated to a bigger UES home with a fire-based kitchen that lets her go even deeper into authentic South African cooking. For Bafana Bafana matches, this is the gathering point. Order the bobotie, the Gatsby sandwich, and a flight of South African reds.",
     chant: "Bafana Bafana! Shosholoza, kulezo ntaba!",
     phrases: [
-      { say: "How do I get to Fort Greene?", means: "Brooklyn-bound C train to Lafayette Ave" },
+      { say: "How do I get to the Upper East Side?", means: "Q train to 72 St or 6 train to 77 St" },
       { say: "Drinks all around!", means: "Universal — try South African wine, the list at Kaia is serious" },
       { say: "It's hot as balls today!", means: "NYC summer slang" },
       { say: "What a goal!", means: "Yebo! 🇿🇦" },
@@ -686,7 +708,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       "The Bronx": "The Bronx's Middle Eastern community is small but present.",
       "Staten Island": "Staten Island has Middle Eastern restaurants serving the broader community.",
     },
-    insider: "Bay Ridge (5th Ave between roughly 65th and 86th Streets) is NYC's modern Arab-American neighborhood — Ayat (Palestinian, but the broader Levantine community gathers here), shisha cafes, and Levantine grocery stores. For a Jordan match, this is where the community will be. Atlantic Avenue is the historic Brooklyn alternative.",
+    insider: "Bay Ridge (5th Ave between roughly 65th and 86th Streets) is NYC's modern Arab-American neighborhood — shisha cafes, Levantine grocery stores, and family restaurants. For a Jordan match, this is where the community will be. Atlantic Avenue is the historic Brooklyn alternative.",
     chant: "Al-Nashama! Al-Nashama! Hayya Ya Urdun!",
     phrases: [
       { say: "How do I get to Bay Ridge?", means: "Kayfa adhhab ila Bay Ridge? (R train south to Bay Ridge Ave)" },
