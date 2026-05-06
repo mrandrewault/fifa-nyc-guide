@@ -301,25 +301,6 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       { say: "What a goal!", means: "¡Qué golazo! 🇪🇸" },
     ],
   },
-  "Portugal": {
-    headline: "Força Portugal — Newark to the Bronx",
-    vibe: "Portugal's biggest US diaspora is in Newark's Ironbound neighborhood (30 min from Penn Station by NJ Transit) but NYC has its spots. The community is deeply proud and passionate — Cristiano Ronaldo jerseys are everywhere.",
-    boroughHighlights: {
-      Manhattan: "SoHo and the West Village have Portuguese restaurants that become community gathering points.",
-      Brooklyn: "Bay Ridge has a Portuguese community worth seeking out.",
-      Queens: "Maspeth has a small but passionate Portuguese community.",
-      "The Bronx": "The Bronx has pockets of Portuguese families going back decades.",
-      "Staten Island": "Staten Island has Portuguese families with deep community ties.",
-    },
-    insider: "The real Portuguese experience near NYC is in Newark's Ironbound district — 30 min by NJ Transit from Penn Station. Ferry Street becomes an outdoor festival for Portugal matches. It's absolutely worth the trip.",
-    chant: "Portugal! Portugal! Campeões do mundo!",
-    phrases: [
-      { say: "How do I get to Newark?", means: "Como chego a Newark?" },
-      { say: "Drinks all around!", means: "Uma rodada para todos!" },
-      { say: "Let's grab a slice", means: "NYC pizza code — locals appreciate it" },
-      { say: "What a goal!", means: "Que golo! 🇵🇹" },
-    ],
-  },
   "Netherlands": {
     headline: "Hup Holland Hup — Orange Takes Manhattan",
     vibe: "Dutch fans in NYC are fun and well-organized — mostly tech and finance professionals who know where to find good beer and good screens. They show up in full Oranje and are extremely well-coordinated.",
@@ -862,7 +843,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       "The Bronx": "The Bronx's Portuguese community is small but present.",
       "Staten Island": "Staten Island has scattered Portuguese community.",
     },
-    insider: "O Lavrador (138-40 101st Ave, Jamaica) is the historic Portuguese institution — bacalhau done five different ways, the full Portuguese wine list, and a community crowd that swells for any Seleção match. For Brooklyn-side fans, Raízes in Greenpoint is the move — frango assado and Super Bock in the Polish-Portuguese corridor.",
+    insider: "O Lavrador (138-40 101st Ave, Jamaica) is the historic Portuguese institution — bacalhau done five different ways, the full Portuguese wine list, and a community crowd that swells for any Seleção match. For Brooklyn-side fans, Raízes in Greenpoint is the move — frango assado and Super Bock in the Polish-Portuguese corridor. Bonus tip: the biggest Portuguese diaspora celebration in the region is actually 30 minutes away in Newark's Ironbound district — Ferry Street becomes an outdoor festival for major Portugal matches. NJ Transit from Penn Station, absolutely worth the trip for marquee fixtures.",
     chant: "Portugal! Portugal! Força Portugal!",
     phrases: [
       { say: "How do I get to Jamaica, Queens?", means: "E/J/Z train to Jamaica Center" },
