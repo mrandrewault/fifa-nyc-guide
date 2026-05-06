@@ -113,13 +113,13 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     headline: "Vai Brasil — NYC Is Your Second Home",
     vibe: "New York has one of the largest Brazilian communities outside Brazil, concentrated in Queens and Astoria. Expect caipirinha-fueled watch parties, chanting that rattles windows, and the best churrasco outside São Paulo.",
     boroughHighlights: {
-      Manhattan: "Manhattan has dedicated Brazilian spots and the city's top soccer bars in Chelsea and Midtown.",
+      Manhattan: "Manhattan has SOB's (Sounds of Brazil) — the legendary Hudson Square live music club that's been amplifying Brazilian music in NYC since 1982 — plus Berimbau in the West Village for warm-day caipirinhas, and the city's top soccer bars in Chelsea and Midtown.",
       Brooklyn: "Sunset Park and Bay Ridge have growing Brazilian communities with authentic spots.",
       Queens: "Queens is the heartland — Astoria and Corona have the densest Brazilian community in NYC.",
       "The Bronx": "The Bronx has pockets of South American diaspora with authentic restaurants.",
       "Staten Island": "Staten Island's South American communities come together for big matches.",
     },
-    insider: "Show up to Green Field Churrascaria in Queens 2 hours before kickoff — the community pre-games there and the caipirinha pitcher deal is only available until the match starts.",
+    insider: "Show up to Green Field Churrascaria in Queens 2 hours before kickoff — the community pre-games there and the caipirinha pitcher deal is only available until the match starts. After a big Seleção win, head downtown to SOB's (204 Varick St) — check their calendar for Brazilian and Latin nights. The post-match samba parties there are something the rest of NYC doesn't quite have.",
     chant: "Eu sou brasileiro, com muito orgulho!",
     phrases: [
       { say: "Where's the subway?", means: "Onde fica o metrô?" },
