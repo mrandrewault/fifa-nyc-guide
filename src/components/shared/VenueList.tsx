@@ -139,7 +139,16 @@ function VenueCard({ venue, accent }: { venue: Venue; accent: string }) {
 
 // ─── Venue List with Show More ────────────────────────────────────────────────
 
-const INITIAL_LIMIT = 3;
+// Smart cutoff: if a borough has SHOW_ALL_THRESHOLD or fewer venues, show them
+// all (no awkward "see more" toggle when there are only a handful). Otherwise,
+// show INITIAL_LIMIT and put the rest behind a "show more" button.
+//
+// This way small-scene countries (Wales: 1 venue, Croatia: 4 venues) show
+// everything cleanly, and deep-coverage countries (Brazil, Mexico, Argentina
+// with 15+ venues per borough) make a strong first impression with 6 visible
+// without overwhelming the scroll.
+const INITIAL_LIMIT = 6;
+const SHOW_ALL_THRESHOLD = 8;
 
 interface VenueListProps {
   venues: Venue[];
@@ -149,8 +158,8 @@ interface VenueListProps {
 
 export default function VenueList({ venues, accent, emptyMessage }: VenueListProps) {
   const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? venues : venues.slice(0, INITIAL_LIMIT);
-  const hasMore = venues.length > INITIAL_LIMIT;
+  const hasMore = venues.length > SHOW_ALL_THRESHOLD;
+  const visible = showAll || !hasMore ? venues : venues.slice(0, INITIAL_LIMIT);
 
   if (venues.length === 0) {
     return (
