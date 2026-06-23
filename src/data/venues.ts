@@ -3324,6 +3324,23 @@ export const VENUES: Venue[] = [
     isVerified: true, verifiedAt: '2026-05-05', isActive: true, featured: true,
   },
 
+  // ─── CAPE VERDE ──────────────────────────────────────────────────────────
+
+  {
+    id: 'cape-verde-september',
+    name: "September",
+    type: 'cultural',
+    address: "83 Saratoga Ave, Bed-Stuy, Brooklyn",
+    borough: 'Brooklyn',
+    neighborhood: 'Bed-Stuy',
+    lat: 40.6810, lng: -73.9202,
+    why: "The Cape Verdean anchor of NYC's first-ever World Cup moment. Owner Sára Lopes is Cape Verdean and opened September in 2021 as a Black-owned Bed-Stuy café and concept shop — the kind of neighborhood third space that hosts clay classes and gratitude evenings on regular days. For the World Cup, that changes: TVs come out specifically for Cape Verde games, traditional Cape Verdean food appears on the menu alongside the regular bagels, burritos, and brunch plates, and beer and wine join the coffee program. With Cape Verde unbeaten through two group games and the Blue Sharks alive heading into the Group H decider, this is the most authentic place to watch the Cinderella story unfold. Located at the corner of Saratoga Avenue and MacDonough Street.",
+    mustOrder: "Cape Verdean match-day plate + beer or wine",
+    atmosphere: "Bed-Stuy Cape Verdean café",
+    countryAssociations: ['Cape Verde'],
+    isVerified: true, verifiedAt: '2026-06-22', isActive: true, featured: true,
+  },
+
   // ─── FIFA FAN ZONES (all countries) ──────────────────────────────────────
 
   {
