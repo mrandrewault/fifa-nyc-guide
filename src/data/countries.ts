@@ -136,7 +136,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     vibe: "Mexico's NYC community is massive, with the deepest roots in Jackson Heights, Corona, and Sunset Park. Watch parties feel like being in a Mexico City cantina — mariachi, mezcal, and deafening chants.",
     boroughHighlights: {
       Manhattan: "Hell's Kitchen and Chelsea have the best Mexican cantinas for match watching. The Lower East Side has Tampico Tequila Bar (10 Delancey) for the more refined mezcal-and-match experience.",
-      Brooklyn: "Sunset Park's 5th Ave is the heart of Brooklyn's Mexican community — Tacos El Bronco, Tacos Matamoros, Los Tres Potrillos all anchor the corridor. Authentic and electric on game days.",
+     Brooklyn: "Sunset Park's 5th Ave is the heart of Brooklyn's Mexican community — Tacos El Bronco, Tacos Matamoros, Los Tres Potrillos all anchor the corridor. Authentic and electric on game days. Greenpoint is the newer story: Socceria, the CDMX-inspired cantina from a James Beard finalist, opened in 2026 specifically as a soccer-first Mexican spot.",
       Queens: "Jackson Heights and Corona are the cultural epicenter — Roosevelt Avenue between 75th and Junction Blvd is the densest Mexican zone in NYC. Juan Bar at 96-15 Roosevelt is a community anchor; Tacos Morelos and Parrilladas Sunrise complete the pre-match circuit.",
       "The Bronx": "Mott Haven and Melrose have growing Mexican communities — Xochimilco Family Restaurant on Melrose Ave is the Bronx anchor.",
       "Staten Island": "Port Richmond has a significant Mexican community with authentic options.",
