@@ -1057,9 +1057,28 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
     chant: "Yma o Hyd! Wales! Wales! Wales!",
     phrases: [
       { say: "Iechyd da!", means: "Universal Welsh toast — pronounced 'YEH-chid dah' (means 'good health/cheers')" },
-      { say: "Diolch!", means: "Welsh 'thank you' — pronounced 'DEE-olkh'" },
+     { say: "Diolch!", means: "Welsh 'thank you' — pronounced 'DEE-olkh'" },
       { say: "What a goal!", means: "Am gôl! 🏴󠁧󠁢󠁷󠁬󠁳󠁿" },
       { say: "It's hot as balls today!", means: "Pure NYC summer slang" },
+    ],
+  },
+  "Cape Verde": {
+    headline: "Blue Sharks in Bed-Stuy — Cape Verde's First World Cup",
+    vibe: "Cape Verde is the story of the 2026 World Cup. An archipelago of 525,000 people qualifying for the first time in their history — beating African powerhouses Cameroon to top their CAF qualifying group. The smallest country by land area ever to make it (a record held briefly until Curaçao broke it five weeks later). Then, on debut: a 0-0 draw with reigning European champions Spain, followed by a 2-2 draw against two-time World Cup winners Uruguay. The Blue Sharks (Tubarões Azuis) head into their decisive Group H match undefeated, alive for the knockouts. The NYC Cape Verdean community is small — the bulk of the US diaspora lives in New England — but in NYC it's firmly anchored by Sára Lopes's September café in Bed-Stuy, where the TVs come out specifically for Cape Verde games and traditional Cape Verdean food appears on the menu only on match days. This is where you watch the smallest nation in World Cup history try to write the unlikeliest chapter.",
+    boroughHighlights: {
+      Manhattan: "Manhattan's Cape Verdean community is small — Brooklyn is the gathering point. The broader Lusophone scene (West Village French-Portuguese bistros, Greenpoint's Raízes Churrascaria, and the multinational Lusophone nights at SOB's in Hudson Square) will catch the Cape Verde feeling.",
+      Brooklyn: "Brooklyn IS Cape Verde NYC. September café in Bed-Stuy — owned by Cape Verdean Sára Lopes — brings out the TVs specifically for Cape Verde matches, serves traditional Cape Verdean food on game days, and is the most authentic Blue Sharks watch room in the five boroughs.",
+      Queens: "Queens has scattered Cape Verdean families woven into the broader West African and Portuguese-speaking diaspora. No dedicated venue yet — but Portuguese-leaning spots in Jamaica (O Lavrador) welcome any Lusophone supporter.",
+      "The Bronx": "The Bronx's African community includes Cape Verdean pockets. No dedicated venue, but the pan-West African anchors (Yopcity in Belmont) welcome any African-team supporter on match days.",
+      "Staten Island": "Staten Island's Cape Verdean community is small but present — the broader Caribbean and African community spaces are the gathering points for match days.",
+    },
+    insider: "September café (83 Saratoga Ave, Bed-Stuy) is the move. Sára Lopes opened the café in 2021 as a Black-owned Bed-Stuy community space — clay classes, gratitude evenings, the kind of place that knows its neighbors. For the World Cup she's brought in TVs specifically for Cape Verde matches and added Cape Verdean food to the menu for game days. Group-stage screenings have been packed. The Group H decider against Saudi Arabia is the one to be there for — a draw or win and Cape Verde advances to the knockouts as one of the smallest nations in World Cup history. For a bigger room, SOB's in Hudson Square is screening every Cape Verde group-stage match (ticketed via kydlabs).",
+    chant: "Cabo Verde! Tubarões Azuis! Vamos lá!",
+    phrases: [
+      { say: "How do I get to Bed-Stuy?", means: "A or C train to Utica Ave; J/Z to Kosciuszko St" },
+      { say: "Obrigado!", means: "Portuguese 'thank you' — same word in Cape Verde" },
+      { say: "Bafa!", means: "Cape Verdean Kriolu — informal for music/celebration/the vibe" },
+      { say: "What a goal!", means: "Que golo! 🇨🇻" },
     ],
   },
 };
