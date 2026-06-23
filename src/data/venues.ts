@@ -1959,7 +1959,7 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Mexico'],
     isVerified: true, verifiedAt: '2026-05-05', isActive: true, featured: true,
   },
-  {
+ {
     id: 'mexico-tampico-tequila-bar',
     name: "Tampico Tequila Bar",
     type: 'bar',
@@ -1973,6 +1973,22 @@ export const VENUES: Venue[] = [
     countryAssociations: ['Mexico'],
     isVerified: true, verifiedAt: '2026-05-05', isActive: true, featured: true,
   },
+  {
+    id: 'mexico-socceria',
+    name: "Socceria",
+    type: 'restaurant',
+    address: "46 Norman Ave, Greenpoint, Brooklyn",
+    borough: 'Brooklyn',
+    neighborhood: 'Greenpoint',
+    lat: 40.7257, lng: -73.9485,
+    why: "'Not a sports bar. A CDMX-inspired cantina with a soccer problem.' That's the tagline, and it tells you exactly what to expect. Socceria is the new Greenpoint cantina from the Taquería Ramírez team — chef-owner Giovanni Cervantes is a 2026 James Beard finalist for Best Chef in New York State (alongside co-founder Tania Apolinar and partners Josh Borock and John Hilmes). The menu goes deep into Mexican fondas and cantinas, far beyond tacos, and the room is designed so you can sit through a full two-hour match without feeling rushed. Designer Matthew Maddy (the James Beard-nominated designer behind Greenpoint's Oxomoco) handled the space. Targeted to open for the World Cup. Note: liquor-license-dependent — call ahead to confirm status. Located at 46 Norman Avenue, the former home of Nura.",
+    mustOrder: "Whatever's running off the comal + a beer",
+    atmosphere: "CDMX cantina with a soccer problem",
+    countryAssociations: ['Mexico'],
+    isVerified: true, verifiedAt: '2026-06-22', isActive: true, featured: true,
+  },
+
+
 
   // ─── SPAIN ───────────────────────────────────────────────────────────────
 
