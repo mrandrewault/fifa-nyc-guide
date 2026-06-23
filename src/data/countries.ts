@@ -141,7 +141,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       "The Bronx": "Mott Haven and Melrose have growing Mexican communities — Xochimilco Family Restaurant on Melrose Ave is the Bronx anchor.",
       "Staten Island": "Port Richmond has a significant Mexican community with authentic options.",
     },
-    insider: "Roosevelt Avenue in Jackson Heights runs 24/7 — after a Mexico win, the street party starts immediately at Corona Plaza and doesn't stop until sunrise. The 7 train is basically a Mexico City subway car on match days. Pre-match move: tacos al pastor at Tacos Morelos (94-13 37th St) before the kickoff, then walk over to Juan Bar for the match itself.",
+   insider: "Roosevelt Avenue in Jackson Heights runs 24/7 — after a Mexico win, the street party starts immediately at Corona Plaza and doesn't stop until sunrise. The 7 train is basically a Mexico City subway car on match days. Pre-match move: tacos al pastor at Tacos Morelos (94-13 37th St) before the kickoff, then walk over to Juan Bar for the match itself. Brooklyn-side, Socceria (46 Norman Ave, Greenpoint) is the new story — chef-owner Giovanni Cervantes is a 2026 James Beard finalist for Best Chef in New York State, and the bar is designed to honor cantina culture from the matchday angle: long, slow, two-hour-game-friendly.",
     chant: "¡Cielito Lindo! Ay ay ay ay — canta y no llores",
     phrases: [
       { say: "How do I get to Jackson Heights?", means: "¿Cómo llego a Jackson Heights?" },
