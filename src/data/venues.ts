@@ -2235,6 +2235,20 @@ export const VENUES: Venue[] = [
 
   // ─── NETHERLANDS ─────────────────────────────────────────────────────────
 
+ {
+  id: 'netherlands-hurleys-saloon',
+  name: "Hurley's Saloon",
+  type: 'bar',
+  address: "232 W 48th St, Theater District, Manhattan",
+  borough: 'Manhattan',
+  neighborhood: 'Theater District',
+  lat: 40.7607, lng: -73.9856,
+  why: "Submitted by a community member as the gathering point for Oranje fans in NYC. Hurley's is a long-running Irish-American sports bar between 8th and Broadway in the heart of the Theater District — three floors, plenty of screens, opens early for European kickoffs, and an established sports-bar culture that welcomes international supporter groups. Worth confirming directly with the bar before a match if you're traveling specifically for Netherlands fixtures, but the community submission flag here is real and consistent with the area's Dutch expat finance/professional crowd.",
+  mustOrder: "Heineken on tap + sound-on watch",
+  atmosphere: "Theater District Irish-American sports bar (Oranje supporters spot)",
+  countryAssociations: ['Netherlands'],
+  isVerified: false, isActive: true, featured: true,
+},
   {
     id: 'netherlands-fraunces-tavern',
     name: "Fraunces Tavern",
