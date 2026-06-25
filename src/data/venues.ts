@@ -413,6 +413,20 @@ export const VENUES: Venue[] = [
   // ─── BRAZIL ──────────────────────────────────────────────────────────────
 
   {
+  id: 'brazil-ironbound-newark',
+  name: "The Ironbound (Newark, NJ)",
+  type: 'cultural',
+  address: "Ferry St & Chambers St area, Newark, NJ 07105",
+  borough: 'Manhattan',
+  neighborhood: 'NJ (PATH from WTC)',
+  lat: 40.7305, lng: -74.1631,
+  why: "Not a single venue — the entire neighborhood. The Ironbound in Newark has more Brazilians and churrascarias per block than anywhere in the NYC metro area, and possibly anywhere in the US outside Florida. For major Seleção matches, streets get closed down, every restaurant on Ferry Street is showing the game, and funk and samba blare from open doors and car windows all day. The post-match street party is something Manhattan and Queens simply cannot replicate. Twenty-minute PATH ride from World Trade Center to Harrison or Newark Penn Station, then a short walk into the heart of it. If you're a Seleção fan in the NYC region for the World Cup, this is non-negotiable.",
+  mustOrder: "Churrasco at any spot on Ferry St + Brahma beer + the street",
+  atmosphere: "Brazilian diaspora street festival",
+  countryAssociations: ['Brazil', 'Portugal'],
+  isVerified: true, verifiedAt: '2026-06-23', isActive: true, featured: true,
+},
+  {
     id: 'brazil-via-brasil',
     name: "Via Brasil Restaurant",
     type: 'restaurant',
