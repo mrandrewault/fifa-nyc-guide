@@ -4,6 +4,20 @@ export const VENUES: Venue[] = [
 
   // ─── UNIVERSAL SOCCER BARS (appear in many country guides) ───────────────
 {
+  id: 'universal-eastpoint-bar',
+  name: "Eastpoint",
+  type: 'bar',
+  address: "25 Avenue B, East Village, Manhattan",
+  borough: 'Manhattan',
+  neighborhood: 'Alphabet City / East Village',
+  lat: 40.7252, lng: -73.9810,
+  why: "Self-described 'upscale sports bar' on Avenue B that's gone all-in on the 2026 World Cup — they have a dedicated 'World Cup Watch Parties NYC' page on their website with multiple screens, game sound, full bar, full kitchen, and drink specials. Open late (until 4am Fri/Sat), takes reservations for private group watches. Alphabet City crowd, lively, all teams and games shown. The reliable East Village option for fans who don't want to commit to a country-specific venue.",
+  mustOrder: "Tacos + happy hour pitcher",
+  atmosphere: "Upscale East Village sports bar with sound on",
+  countryAssociations: ['United States','England','Ireland','Germany','France','Italy','Spain','Argentina','Brazil','Mexico','Colombia','Australia'],
+  isVerified: true, verifiedAt: '2026-06-23', isActive: true, featured: true,
+},
+  {
   id: 'universal-bk-backyard',
   name: "BK Backyard Bar",
   type: 'bar',
