@@ -122,7 +122,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       "The Bronx": "The Bronx has pockets of South American diaspora with authentic restaurants.",
       "Staten Island": "Staten Island's South American communities come together for big matches.",
     },
-    insider: "Show up to Green Field Churrascaria in Queens 2 hours before kickoff — the community pre-games there and the caipirinha pitcher deal is only available until the match starts. After a big Seleção win, head downtown to SOB's (204 Varick St) — check their calendar for Brazilian and Latin nights. The post-match samba parties there are something the rest of NYC doesn't quite have. For Brooklyn-side fans, Miss Favela in Williamsburg is the move — the live samba on weekends turns any Saturday match into a full-day party.",
+    insider: "Show up to Green Field Churrascaria in Queens 2 hours before kickoff — the community pre-games there and the caipirinha pitcher deal is only available until the match starts. After a big Seleção win, head downtown to SOB's (204 Varick St) — check their calendar for Brazilian and Latin nights. The post-match samba parties there are something the rest of NYC doesn't quite have. For Brooklyn-side fans, Miss Favela in Williamsburg is the move — the live samba on weekends turns any Saturday match into a full-day party. For the ultimate pilgrimage: the Ironbound in Newark is the largest Brazilian diaspora neighborhood in the NYC metro area — Ferry Street between Chambers and the heart of the Ironbound becomes an outdoor festival for major Seleção matches. 20-minute PATH ride from WTC to Harrison or Newark Penn. If you're a serious Brazil fan, this is non-negotiable.",
     chant: "Eu sou brasileiro, com muito orgulho!",
     phrases: [
       { say: "Where's the subway?", means: "Onde fica o metrô?" },
@@ -502,7 +502,7 @@ export const GUIDE_TEXT: Record<string, GuideText> = {
       "The Bronx": "The Bronx's Irish-Scottish pub culture overlaps — community pubs welcome Tartan Army fans.",
       "Staten Island": "Staten Island's Scottish-American community is small but turns out for big matches.",
     },
-    insider: "If you want to find the NYC Tartan Army before a Scotland match, head to Caledonia Bar (1609 2nd Ave) early. The bartenders are Scottish, the whisky list is serious, and the supporters' group coordinates from there. Tartan Day Parade in April is also their major NYC moment.",
+    insider: "For the 2026 World Cup specifically, Tartan Army NYC has officially designated Grisly Pear Midtown (243 W 54th St) as their WC home — that's where the supporters group is coordinating watch parties through the St. George's Society's official watch-party series. For year-round Scottish atmosphere, Caledonia Bar (1609 2nd Ave) remains the cultural anchor with the whisky list and Scottish bartenders.",
     chant: "Flower of Scotland! O flower of Scotland, when will we see your like again?",
     phrases: [
       { say: "How do I get to the Upper East Side?", means: "NYC-speak: 'get' not 'reach'" },
