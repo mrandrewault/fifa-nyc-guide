@@ -1302,6 +1302,20 @@ export const VENUES: Venue[] = [
   // ─── SCOTLAND ────────────────────────────────────────────────────────────
 
   {
+  id: 'scotland-grisly-pear-midtown',
+  name: "Grisly Pear Midtown",
+  type: 'bar',
+  address: "243 W 54th St, Theater District, Manhattan",
+  borough: 'Manhattan',
+  neighborhood: 'Theater District',
+  lat: 40.7644, lng: -73.9837,
+  why: "The officially designated home of Tartan Army NYC for the 2026 World Cup. When Scotland plays, this is THE move — the Tartan Army supporters group has organized their watch parties here through the St. George's Society NYC's official watch-party series. Steps from Times Square and Central Park, with the dual-location operation (sister bar in Greenwich Village at 107 MacDougal St). Sound on, packed for Scotland matches, kilts and chants encouraged. With the Tartan Army being one of the breakout fan stories of the tournament (their Boston and South Florida takeovers have been documented by ESPN and CBS), this is where NYC's piece of that party happens.",
+  mustOrder: "Pint of Tennent's + 'Flower of Scotland' at full volume",
+  atmosphere: "Tartan Army NYC official WC home",
+  countryAssociations: ['Scotland'],
+  isVerified: true, verifiedAt: '2026-06-23', isActive: true, featured: true,
+},
+  {
     id: 'scotland-caledonia',
     name: "Caledonia Bar",
     type: 'bar',
