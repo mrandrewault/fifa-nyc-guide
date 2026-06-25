@@ -3,7 +3,20 @@ import type { Venue } from '@/types';
 export const VENUES: Venue[] = [
 
   // ─── UNIVERSAL SOCCER BARS (appear in many country guides) ───────────────
-
+{
+  id: 'universal-bk-backyard',
+  name: "BK Backyard Bar",
+  type: 'bar',
+  address: "151 Banker St, Williamsburg, Brooklyn",
+  borough: 'Brooklyn',
+  neighborhood: 'Williamsburg',
+  lat: 40.7232, lng: -73.9461,
+  why: "'New York's Biggest Backyard Bar' — a 17,000 sq ft open-air space with 40+ TVs and a 20-foot video wall, built specifically for big watch parties. The infrastructure is genuinely outsized: picnic tables, private cabanas, outdoor games, full kitchen and bar. Best for World Cup matches that draw a crowd, or as overflow when Socceria's CDMX cantina is packed five blocks away during a marquee Mexico fixture. The kind of venue where you can show up with 20 friends and not worry about getting in.",
+  mustOrder: "Pitcher + bar food in the open air",
+  atmosphere: "17,000 sq ft outdoor sports bar",
+  countryAssociations: ['United States','Mexico','England','Ireland','Germany','France','Italy','Spain','Argentina','Brazil','Colombia','Australia','Norway'],
+  isVerified: true, verifiedAt: '2026-06-23', isActive: true, featured: true,
+},
   {
     id: 'football-factory-legends',
     name: "Football Factory at Legends",
