@@ -19,6 +19,7 @@ import EmailSignup from '@/components/shared/EmailSignup';
 import MySpots from '@/components/shared/MySpots';
 import SubmitVenueCTA from '@/components/SubmitVenueCTA';
 import ShareButton from '@/components/ShareButton';
+import ShopCallout from '@/components/ShopCallout';
 
 const MapView = dynamic(() => import('@/components/shared/MapView'), {
   ssr: false,
@@ -269,6 +270,9 @@ export default function GuideTab() {
               </div>
             </div>
           </div>
+
+          {/* Shop callout — country-specific, links to that country's tee on shop.golazo.nyc */}
+          <ShopCallout country={selected.name} />
 
           {/* What to say */}
           {guideText.phrases && guideText.phrases.length > 0 && (
